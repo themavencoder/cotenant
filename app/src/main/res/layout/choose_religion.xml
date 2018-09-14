@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="14dp"
+        android:text="Are you a"
+        android:textSize="20sp"
+        />
+    <RadioGroup
+        android:id="@+id/yourreligion"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+<RadioButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/christian"
+    android:layout_marginBottom="8dp"
+    android:textSize="16sp"
+    android:text = "@string/christian"
+    />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/muslim"
+            android:text="Muslim"
+            android:textSize="16sp"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="32dp"
+        android:text="Can you stay with a "
+        android:textSize="20sp"
+        />
+    <RadioGroup
+        android:id="@+id/stayreligion"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/staychristian"
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
+            android:text = "@string/christian"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/staymuslim"
+            android:text="Muslim"
+            android:textSize="16sp"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/any"
+            android:text="Any"
+            android:textSize="16sp"
+            />
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@color/regButtonColor"
+        android:onClick="nextScreen"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+</LinearLayout>

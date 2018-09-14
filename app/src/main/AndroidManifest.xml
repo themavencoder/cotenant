@@ -2,14 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.getmobileltd.cotenant">
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".registration.EnterPhoneNumber"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".registration.EnterCode"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".registration.EnterPhoneNumber" />
+        </activity>
+        <activity
+            android:name=".registration.AboutYou"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".registration.AppPin"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".dashboard.DefaultDashboard"
+            android:label="Dashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".mergedashboard.MergedDashboard"
+            android:label="Dashboard"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

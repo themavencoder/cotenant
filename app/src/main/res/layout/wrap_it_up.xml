@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="16dp"
+    android:orientation="vertical"
+    android:layout_marginRight="64dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@android:color/black"
+        android:layout_height="wrap_content"
+        android:text="You are awesome!"
+        android:textSize="24sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="24dp"
+        android:text="Let's wrap it up, shall we?"
+        android:textSize="20sp"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="48dp"
+        android:textStyle="bold"
+        android:text="Tap anywhere to continue"
+        android:textSize="24sp"/>
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="14dp"
+        android:text="Do you smoke?"
+        android:textSize="20sp"
+        />
+    <RadioGroup
+        android:id="@+id/yousmoke"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/yessmoke"
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
+            android:text = "@string/yes"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nosmoke"
+            android:text="@string/no"
+            android:textSize="16sp"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="32dp"
+        android:text="Can you stay with someone who smokes? "
+        android:textSize="20sp"
+        />
+    <RadioGroup
+        android:id="@+id/staysmoke"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stayyes"
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
+            android:text = "@string/yes"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/stayno"
+            android:text="@string/no"
+            android:textSize="16sp"
+            />
+
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@color/regButtonColor"
+        android:onClick="nextScreen"
+        android:text="@string/next"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+</LinearLayout>
