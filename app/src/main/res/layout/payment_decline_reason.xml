@@ -14,17 +14,23 @@
         android:layout_width="match_parent"
         android:layout_height="333dp"
         android:layout_margin="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/include"
-        tools:layout_editor_absoluteX="24dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include">
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
+            android:textStyle="bold"
             android:text="Please tell us your reason"
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
 
             />
 
@@ -32,10 +38,18 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="#EDEDED"
             android:layout_marginTop="16dp"
-            />
+            android:background="#EDEDED" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/regButtonColor"
+
+            android:text="@string/done"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

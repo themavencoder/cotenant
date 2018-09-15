@@ -14,7 +14,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".registration.EnterPhoneNumber"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.EnterCode"
             android:theme="@style/AppTheme.NoActionBar">
@@ -24,25 +24,35 @@
         </activity>
         <activity
             android:name=".registration.AboutYou"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.AppPin"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".dashboard.DefaultDashboard"
             android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".mergedashboard.MergedDashboard"
-            android:label="Dashboard"
-            >
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mergedashboard.MergedDashboard"
+            android:label="Dashboard" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".interest.InterestActivity"
+            android:label="Interest">
+
+        </activity>
+        <activity android:name=".history.HistoryActivity">
+
+        </activity>
+        <activity android:name=".payment.SetUpCard">
+
+
         </activity>
     </application>
 

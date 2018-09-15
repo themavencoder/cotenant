@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@color/regButtonColor"
-        android:onClick="nextScreen"
+
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white"

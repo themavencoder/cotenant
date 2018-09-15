@@ -6,6 +6,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="greatjob">Great job!</string>
+    <string name="done">Done</string>
 
     <string-array name="Gender">
         <item>Male</item>
