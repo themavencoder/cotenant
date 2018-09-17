@@ -6,4 +6,5 @@
     <color name="white">#FFFFFF</color>
     <color name="regButtonColor">#EC1D24</color>
     <color name="green">#219653</color>
+    <color name="unselectColor">#959595</color>
 </resources>

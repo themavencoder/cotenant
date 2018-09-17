@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/your_dashboard"
+        android:title="Your dashboard"/>
+    <item android:id = "@+id/available_space"
+        android:title="Available space"/>
+    <item android:id = "@+id/interest"
+        android:title="Interest"/>
+
+    <item android:id = "@+id/history"
+android:title="History"/>
+    <item android:id = "@+id/payment"
+        android:title="Payment"/>
+    <item android:id = "@+id/settings"
+        android:title="Settings"/>
+</menu>

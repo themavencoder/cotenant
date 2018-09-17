@@ -11,15 +11,15 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_marginLeft="22dp"
 
         android:layout_marginStart="22dp"
-        android:textStyle="bold"
         android:layout_marginTop="64dp"
         android:text="Enter your mobile number"
         android:textColor="@android:color/black"
-        android:textSize="22sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,13 +69,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="22dp"
-        android:onClick="nextScreen"
         android:layout_marginLeft="22dp"
         android:layout_marginRight="22dp"
-
+        android:id="@+id/btn_enter_phone_number"
 
         android:layout_marginStart="22dp"
-        android:background="@color/regButtonColor"
+        android:background="@drawable/btn_red"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white"

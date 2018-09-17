@@ -8,6 +8,10 @@
     <string name="greatjob">Great job!</string>
     <string name="done">Done</string>
 
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="four_digit_code">Enter the 4 digit code sent to your mobile number</string>
+
     <string-array name="Gender">
         <item>Male</item>
         <item>Female</item>
