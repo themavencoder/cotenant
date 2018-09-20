@@ -2,12 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+
     android:layout_height="match_parent">
 
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="/"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="11"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textStyle="bold"
@@ -16,14 +56,17 @@
         android:textSize="20sp"
         />
     <RadioGroup
-        android:id="@+id/yousmoke"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:checkedButton="@id/radiobutton_choosesmoke_one_yes"
+        android:id="@+id/radiogroup_choosesmoke_one"
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/yessmoke"
+            android:id="@+id/radiobutton_choosesmoke_one_yes"
             android:layout_marginBottom="8dp"
             android:textSize="16sp"
             android:text = "@string/yes"
@@ -31,7 +74,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/nosmoke"
+            android:id="@+id/radiobutton_choosesmoke_one_no"
             android:text="@string/no"
             android:textSize="16sp"
             />
@@ -39,6 +82,8 @@
     </RadioGroup>
 
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -48,15 +93,18 @@
         android:text="Can you stay with someone who smokes? "
         android:textSize="20sp"
         />
-    <RadioGroup
-        android:id="@+id/staysmoke"
-        android:layout_width="wrap_content"
 
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:id="@+id/radiogroup_choosesmoke_two"
+        android:layout_marginRight="16dp"
+        android:checkedButton="@id/radiobutton_choosesmoke_two_no"
         android:layout_height="wrap_content">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/stayyes"
+            android:id="@+id/radiobutton_choosesmoke_two_yes"
             android:layout_marginBottom="8dp"
             android:textSize="16sp"
             android:text = "@string/yes"
@@ -64,7 +112,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/stayno"
+            android:id="@+id/radiobutton_choosesmoke_two_no"
             android:text="@string/no"
             android:textSize="16sp"
             />
@@ -75,13 +123,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
+        android:id="@+id/choosesmoke_button"
         android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
 
-        android:background="@color/regButtonColor"
-        android:onClick="nextScreen"
+        android:background="@drawable/btn_red"
+
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white" />

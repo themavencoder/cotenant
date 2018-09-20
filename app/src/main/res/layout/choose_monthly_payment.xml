@@ -3,14 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+
     android:orientation="vertical">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="/"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="11"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
 
 
     <TextView
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:text="How much can you pay monthly?"
         android:textColor="@android:color/black"
         android:textSize="20sp"
@@ -20,11 +61,16 @@
         />
 
     <com.jaygoo.widget.RangeSeekBar
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="28dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:rsb_mode="range" />
 
     <Button
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -32,7 +78,7 @@
         android:layout_marginTop="32dp"
 
         android:background="@color/regButtonColor"
-        android:onClick="nextScreen"
+   android:id="@+id/btn_choose_monthly_payment"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white" />

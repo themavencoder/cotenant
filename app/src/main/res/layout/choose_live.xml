@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_marginLeft="8dp"
+
     android:orientation="vertical"
-    android:layout_marginRight="8dp"
     android:layout_height="match_parent">
 
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="/"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="11"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
 
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
+        android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textStyle="bold"
@@ -17,6 +57,8 @@
         android:textSize="20sp"
         />
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -26,6 +68,8 @@
         />
 
     <EditText
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:background="#EDEDED"
@@ -35,11 +79,12 @@
         android:layout_height="wrap_content"
 
 
-
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="64dp"
+        android:id="@+id/btn_choose_live"
+        android:background="@drawable/btn_red"
 
-        android:background="@color/regButtonColor"
-        android:onClick="nextScreen"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white" />

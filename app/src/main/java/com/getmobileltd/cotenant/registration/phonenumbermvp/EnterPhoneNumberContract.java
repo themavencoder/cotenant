@@ -22,7 +22,7 @@ public interface EnterPhoneNumberContract {
     interface Presenter {
         void verifyNumber();
         void defaultSettings();
-
+    void loadNextScreen();
         void saveNumber(String phonenumber);
 
 

@@ -19,7 +19,7 @@ public interface EnterCodeContract {
 
         void verifyCode();
         void defaultSettings();
-        public String appendStrings(String firstcode, String secondcode, String thirdcode, String fourthcode);
+        String appendStrings(String firstcode, String secondcode, String thirdcode, String fourthcode);
         void saveCode(String first, String second, String third, String fourth);
         void loadNextScreen();
 

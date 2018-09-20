@@ -5,7 +5,6 @@
 
     android:layout_height="match_parent">
 
-
     <include layout="@layout/toolbar"/>
 
     <LinearLayout
@@ -22,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8"
+            android:text="9"
 
             android:textColor="@android:color/black"
             android:textSize="20sp"
@@ -45,20 +44,32 @@
 
     </LinearLayout>
 
+
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:layout_marginTop="40dp"
-        android:text="What's your salary range?"
+        android:layout_marginBottom="4dp"
+        android:text="How long do you intend to live in the apartment?"
+        android:textSize="20sp"
+        />
+    <TextView
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="14dp"
+        android:text="* Dont worry, you'll be billed monthly"
+        android:textSize="12sp"
         />
 
     <Spinner
-        android:id="@+id/salarySpinner"
+        android:id="@+id/billingSpinner"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_width="match_parent"
@@ -66,15 +77,16 @@
         android:layout_marginTop="48dp"/>
 
     <Button
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/btn_choose_living_length"
+        android:layout_marginTop="32dp"
+
         android:background="@color/regButtonColor"
-        android:id="@+id/btn_choose_salary_range"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white" />
-
 </LinearLayout>

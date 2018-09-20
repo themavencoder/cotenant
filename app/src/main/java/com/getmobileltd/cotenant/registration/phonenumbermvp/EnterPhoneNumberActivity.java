@@ -67,7 +67,7 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements Enter
 
                 presenter.saveNumber(editTextCarrierNumber.getText().toString());
 
-                presenter.verifyNumber();
+                presenter.loadNextScreen();
 
 
             }

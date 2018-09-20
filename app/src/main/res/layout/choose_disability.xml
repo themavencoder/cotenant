@@ -2,15 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+
     android:layout_height="match_parent">
 
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="/"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="11"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textStyle="bold"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="14dp"
         android:text="Are you a disabled person?"
         android:textSize="20sp"
@@ -18,7 +59,9 @@
     <RadioGroup
         android:id="@+id/yourdisability"
         android:layout_width="wrap_content"
-
+        android:checkedButton="@id/disabledyes"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_height="wrap_content">
         <RadioButton
             android:layout_width="wrap_content"
@@ -45,12 +88,17 @@
         android:textStyle="bold"
         android:layout_marginBottom="14dp"
         android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:text="Can you stay with a disabled person? "
         android:textSize="20sp"
         />
     <RadioGroup
-        android:id="@+id/stayreligion"
+        android:id="@+id/roomatedisability"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:checkedButton="@id/staydisabledyes"
+        android:layout_marginRight="16dp"
 
         android:layout_height="wrap_content">
         <RadioButton
@@ -75,11 +123,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="32dp"
-
-        android:background="@color/regButtonColor"
+        android:id="@+id/btn_choose_disabliity"
+        android:background="@drawable/btn_red"
         android:onClick="nextScreen"
         android:text="@string/next"
         android:textAllCaps="false"

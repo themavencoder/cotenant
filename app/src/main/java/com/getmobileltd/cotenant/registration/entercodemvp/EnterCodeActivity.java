@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.getmobileltd.cotenant.R;
-import com.getmobileltd.cotenant.registration.AboutYou;
+import com.getmobileltd.cotenant.registration.aboutyoumvp.AboutYouActivity;
 
 public class EnterCodeActivity extends AppCompatActivity implements EnterCodeContract.View{
     private Button mEnterbutton;
@@ -96,7 +96,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
     @Override
     public void navigateTonextScreen() {
         setContentView(R.layout.phonenumber_verified);
-        startActivity(new Intent(this, AboutYou.class));
+        startActivity(new Intent(this, AboutYouActivity.class));
 
     }
     TextWatcher watch = new TextWatcher() {

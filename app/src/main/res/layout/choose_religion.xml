@@ -2,11 +2,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+
     android:layout_height="match_parent">
 
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="/"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="11"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -16,14 +54,17 @@
         android:textSize="20sp"
         />
     <RadioGroup
-        android:id="@+id/yourreligion"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/myreligion"
         android:layout_width="wrap_content"
+        android:checkedButton="@id/radiobutton_christian_personal_choose_religion"
 
         android:layout_height="wrap_content">
 <RadioButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/christian"
+    android:id="@+id/radiobutton_christian_personal_choose_religion"
     android:layout_marginBottom="8dp"
     android:textSize="16sp"
     android:text = "@string/christian"
@@ -31,7 +72,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/muslim"
+            android:id="@+id/radiobutton_muslim_personal_choose_religion"
             android:text="Muslim"
             android:textSize="16sp"
             />
@@ -39,6 +80,8 @@
     </RadioGroup>
 
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -49,29 +92,33 @@
         android:textSize="20sp"
         />
     <RadioGroup
-        android:id="@+id/stayreligion"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/roomatereligion"
+        android:checkedButton="@id/radiobutton_christian_roomate_choose_religion"
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/staychristian"
+            android:id="@+id/radiobutton_christian_roomate_choose_religion"
             android:layout_marginBottom="8dp"
+
             android:textSize="16sp"
             android:text = "@string/christian"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/staymuslim"
+            android:id="@+id/radiobutton_muslim_roomate_choose_religion"
             android:text="Muslim"
             android:textSize="16sp"
             />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/any"
+            android:id="@+id/radiobutton_any_roomate_choose_religion"
             android:text="Any"
             android:textSize="16sp"
             />
@@ -79,14 +126,14 @@
     </RadioGroup>
 
     <Button
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
-        android:layout_marginRight="16dp"
+        android:id="@+id/btn_choose_religion"
         android:layout_marginTop="32dp"
 
-        android:background="@color/regButtonColor"
+        android:background="@drawable/btn_red"
         android:onClick="nextScreen"
         android:text="@string/next"
         android:textAllCaps="false"

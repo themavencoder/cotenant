@@ -2,21 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_marginTop="48dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+
+
     android:layout_height="match_parent">
 
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11"
+
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="/"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="11"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textStyle="bold"
+        android:layout_marginTop="26dp"
         android:layout_marginBottom="4dp"
         android:text="Setup a security for your app"
         android:textSize="20sp"
         />
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
@@ -25,6 +69,8 @@
         android:textSize="12sp"
         />
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#E0E0E0"
@@ -35,6 +81,8 @@
         />
 
     <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -43,6 +91,7 @@
 
 
         <EditText
+
             android:id="@+id/confirmeditText_firstcode"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
@@ -94,6 +143,8 @@
 
     </LinearLayout>
     <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#E0E0E0"
@@ -104,6 +155,8 @@
         android:textSize="18sp"
         />
     <LinearLayout
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -165,12 +218,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_marginLeft="16dp"
 
         android:layout_marginRight="16dp"
         android:layout_marginTop="32dp"
-
-        android:background="@color/regButtonColor"
+    android:id="@+id/btn_choose_pin"
+        android:background="@drawable/btn_red"
         android:text="Finish"
         android:textAllCaps="false"
         android:textColor="@color/white" />

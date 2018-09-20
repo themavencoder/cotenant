@@ -22,7 +22,7 @@ public EnterPhoneNumberPresenter(EnterPhoneNumberContract.View view) {
         view.enableButtonColor(R.drawable.btn_red);
         view.enableButtonClick(true);
         view.enablePositiveChecked();
-        view.navigateTonextScreen();
+
 
 
 
@@ -35,6 +35,11 @@ public EnterPhoneNumberPresenter(EnterPhoneNumberContract.View view) {
         view.enableButtonClick(false);
         view.enableButtonColor(R.drawable.btn_ash);
         view.disablePositiveChecked();
+    }
+
+    @Override
+    public void loadNextScreen() {
+        view.navigateTonextScreen();
     }
 
     @Override

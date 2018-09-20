@@ -1,7 +1,7 @@
 package com.getmobileltd.cotenant.registration.entercodemvp;
 
 public class EnterCodeModel {
-    String firstcode, secondcode,thirdcode, fourthcode;
+  private  String firstcode, secondcode,thirdcode, fourthcode;
 
     public EnterCodeModel(String firstcode, String secondcode, String thirdcode, String fourthcode) {
         this.firstcode = firstcode;
