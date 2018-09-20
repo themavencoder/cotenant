@@ -81,6 +81,17 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
         startActivity(new Intent(this, ComfortableGenderActivity.class));
 
     }
+
+    @Override
+    public void showError(String error) {
+        mFirstName.setError(error);
+    }
+
+    @Override
+    public void showError2(String error) {
+        mLastName.setError(error);
+    }
+
     TextWatcher watch = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -89,7 +100,19 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            presenter.saveData(mFirstName.getText().toString(),mLastName.getText().toString(),spinner.getSelectedItem().toString());
+        String firstname = mFirstName.getText().toString().trim();
+        String lastName = mLastName.getText().toString().trim();
+        if (firstname.length() < 3) {
+            presenter.displayError();
+            return;
+
+            }
+            if (lastName.length() < 3) {
+            presenter.displayError2();
+            return;
+            }
+
+            presenter.saveData(firstname,lastName,spinner.getSelectedItem().toString());
             presenter.verifyEntries();
         }
 

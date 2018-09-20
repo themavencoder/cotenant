@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getmobileltd.cotenant.R;
@@ -32,7 +33,6 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         presenter = new EnterCodePresenter(this);
         init();
         presenter.defaultSettings();
-
 
         mEnterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,10 +110,20 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
             presenter.saveCode(mFirstCode.getText().toString(),mSecondCode.getText().toString(),mThirdCode.getText().toString(),mFourthCode.getText().toString());
             presenter.verifyCode();
 
+            EditText text = (EditText) getCurrentFocus();
+            if (text != null && text.length() > 0) {
+                View next  = text.focusSearch(View.FOCUS_RIGHT);
+                if (next != null) {
+                    next.requestFocus();
+                }
+            }
+
+
         }
 
         @Override
         public void afterTextChanged(Editable editable) {
+
 
         }
     };

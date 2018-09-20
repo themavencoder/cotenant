@@ -50,4 +50,14 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
         model.setGender(gender);
 
     }
+
+    @Override
+    public void displayError() {
+        view.showError("Your first name should be more than 3 characters");
+    }
+
+    @Override
+    public void displayError2() {
+        view.showError2("Your last name should be more than 3 characters");
+    }
 }

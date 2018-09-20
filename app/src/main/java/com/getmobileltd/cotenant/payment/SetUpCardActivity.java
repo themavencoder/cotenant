@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.getmobileltd.cotenant.R;
 
-public class SetUpCard extends AppCompatActivity {
+public class SetUpCardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

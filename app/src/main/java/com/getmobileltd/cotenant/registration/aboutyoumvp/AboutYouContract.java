@@ -6,6 +6,8 @@ public interface AboutYouContract {
         void enableButtonClick(boolean b);
         void enableButtonColor(int color);
         void navigateToNextScreen();
+        void showError(String error);
+        void showError2(String error);
 
 
     }
@@ -15,6 +17,8 @@ public interface AboutYouContract {
         void verifyEntries();
         void loadNextScreen();
         void saveData(String firstName, String lastName, String gender);
+        void displayError();
+        void displayError2();
 
     }
 }
