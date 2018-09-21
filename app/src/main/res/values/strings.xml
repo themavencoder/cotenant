@@ -11,12 +11,15 @@
     <string name="Open">Open</string>
     <string name="Close">Close</string>
     <string name="four_digit_code">Enter the 4 digit code sent to your mobile number</string>
+    <string name="gender">Gender</string>
 
     <string-array name="Gender">
+
         <item>Male</item>
         <item>Female</item>
 
     </string-array>
+
 
     <string-array name="Salary">
         <item>70 - 100k</item>

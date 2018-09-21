@@ -12,6 +12,7 @@ import com.getmobileltd.cotenant.registration.apppinmvp.AppPinActivity;
 
 public class ChooseMonthlyPayment extends AppCompatActivity {
 Button mButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ Button mButton;
                 startActivity(new Intent(ChooseMonthlyPayment.this, AppPinActivity.class));
             }
         });
+
 
     }
 }

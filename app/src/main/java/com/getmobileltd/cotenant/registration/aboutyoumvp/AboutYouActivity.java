@@ -8,10 +8,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.support.v7.widget.AppCompatSpinner;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 
 import com.getmobileltd.cotenant.R;
@@ -22,6 +24,7 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
     private Button mButton;
     private AboutYouContract.Presenter presenter;
     private EditText mFirstName, mLastName;
+
 
 
     @Override
@@ -58,6 +61,7 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
         ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this,R.array.Gender,android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(genderAdapter);
+        spinner.setSelection(0);
         mFirstName.addTextChangedListener(watch);
         mLastName.addTextChangedListener(watch);
 
@@ -121,4 +125,5 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
         }
     };
+
 }
