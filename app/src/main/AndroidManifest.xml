@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.getmobileltd.cotenant">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,44 +13,54 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MainActivity" />
-        <activity
-            android:name=".registration.phonenumbermvp.EnterPhoneNumberActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID" />
+        <meta-data
+            android:name="com.facebook.accountkit.ClientToken"
+            android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
 
+        <activity android:name="com.facebook.accountkit.ui.AccountKitActivity" />
+        <activity android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/ak_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity
+            android:name=".registration.phonenumbermvp.EnterPhoneNumberActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".registration.entercodemvp.EnterCodeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".registration.phonenumbermvp.EnterPhoneNumberActivity" />
-
-
         </activity>
         <activity
             android:name=".registration.aboutyoumvp.AboutYouActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.apppinmvp.AppPinActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".dashboard.DefaultDashboard"
             android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-
-        </activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".mergedashboard.MergedDashboard"
             android:label="Dashboard" />
@@ -75,9 +87,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".registration.chooseworkmvp.ChooseWorkActivity" />
         <activity android:name=".registration.salaryrangemvp.SalaryRangeActivity" />
-        <activity android:name=".registration.choosemonthlypaymentmvp.ChooseMonthlyPayment" />
+        <activity android:name=".registration.choosemonthlypaymentmvp.ChooseMonthlyPayment"></activity>
         <activity android:name=".registration.livinglengthmvp.LivingLengthActivity" />
-        <activity android:name=".registration.lastregmvp.LastRegActivity"></activity>
+        <activity android:name=".registration.lastregmvp.LastRegActivity" />
+        <activity android:name=".payment.EmptyPayment" />
+        <activity android:name=".profile.ProfileActivity"></activity>
     </application>
 
 </manifest>

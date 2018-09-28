@@ -51,5 +51,10 @@ public class ComfortableGenderActivity extends AppCompatActivity implements Comf
         startActivity(new Intent(this, ReligionChoiceActivity.class));
 
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 }

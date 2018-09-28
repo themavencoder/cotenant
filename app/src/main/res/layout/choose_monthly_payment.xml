@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
 
         android:layout_marginTop="28dp"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,15 +30,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="/"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="11"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
 
@@ -47,11 +46,11 @@
 
 
     <TextView
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginTop="40dp"
         android:text="How much can you pay monthly?"
         android:textColor="@android:color/black"
         android:textSize="20sp"
@@ -60,26 +59,68 @@
 
         />
 
-    <com.jaygoo.widget.RangeSeekBar
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:rsb_mode="range" />
-
-
-    <Button
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+    <!-- seekbar option 2 -->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+android:layout_marginRight="16dp"
+        android:layout_marginTop="30dp"
+        android:clipChildren="false">
 
+        <com.getmobileltd.cotenant.registration.choosemonthlypaymentmvp.RangeBar
+            android:id="@+id/rangeSeekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:corner_radius="10"
+            app:min_value="30"
+            app:steps="10"
+            android:layout_marginTop="30dp"
+            app:max_value="100"
+            app:gap="20"
+            app:bar_color="#F3777B"
+            app:bar_highlight_color="#A51419"
+            app:left_thumb_color="#EC1D24"
+            app:right_thumb_color="#EC1D24"
+            app:left_thumb_color_pressed="#BC171C"
+            app:right_thumb_color_pressed="#BC171C"
+            app:data_type="_integer"/>
+
+        <TextView
+            android:id="@+id/textMin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30000"
+            android:layout_below="@id/rangeSeekbar"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:textSize="16dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/textMax2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100000"
+            android:layout_below="@id/rangeSeekbar"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="16dp"
+            android:textColor="#000"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_choose_monthly_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+
+
+        android:layout_marginRight="16dp"
 
         android:layout_marginTop="32dp"
-
-        android:background="@color/regButtonColor"
-   android:id="@+id/btn_choose_monthly_payment"
+        android:background="@drawable/btn_red"
         android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/white" />

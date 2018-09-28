@@ -17,6 +17,7 @@ import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.history.HistoryActivity;
 import com.getmobileltd.cotenant.interest.InterestActivity;
 import com.getmobileltd.cotenant.mergedashboard.MergedDashboard;
+import com.getmobileltd.cotenant.payment.EmptyPayment;
 import com.getmobileltd.cotenant.payment.SetUpCardActivity;
 
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class DefaultDashboard extends AppCompatActivity {
                         break;
 
                     case R.id.payment:
-                        startActivity(new Intent(DefaultDashboard.this, SetUpCardActivity.class));
+                        startActivity(new Intent(DefaultDashboard.this, EmptyPayment.class));
                         break;
 
                     default:

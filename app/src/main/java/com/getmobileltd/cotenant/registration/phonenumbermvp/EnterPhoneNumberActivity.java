@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,11 +24,12 @@ import com.hbb20.CountryCodePicker;
 
 public class EnterPhoneNumberActivity extends AppCompatActivity implements EnterPhoneNumberContract.View{
 
-    private CountryCodePicker ccp;
+
     private EditText editTextCarrierNumber;
     private ImageView postiveChecked;
     private EnterPhoneNumberContract.Presenter presenter;
     private Button mButton;
+    private static final String DEFAULT_CODE = "+234";
 
 
 
@@ -39,34 +43,13 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements Enter
         presenter = new EnterPhoneNumberPresenter(this);
         presenter.defaultSettings();
 
-        ccp.setPhoneNumberValidityChangeListener(new CountryCodePicker.PhoneNumberValidityChangeListener() {
-            @Override
-            public void onValidityChanged(boolean isValidNumber) {
-
-                // your code
-                if (ccp.isValidFullNumber()) {
-
-                        presenter.verifyNumber();
-
-
-
-
-                }
-                else {
-
-
-                   presenter.defaultSettings();
-
-                }
-
-            }
-        });
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                presenter.saveNumber(editTextCarrierNumber.getText().toString());
-
+                String result = editTextCarrierNumber.getText().toString();
+                String result2 = DEFAULT_CODE + result;
+                presenter.saveNumber(result2);
+                Toast.makeText(EnterPhoneNumberActivity.this, result2, Toast.LENGTH_SHORT).show();
                 presenter.loadNextScreen();
 
 
@@ -77,11 +60,12 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements Enter
 
     private void init() {
             presenter = new EnterPhoneNumberPresenter(this);
-            ccp = findViewById(R.id.ccp);
+
             postiveChecked =findViewById(R.id.positivechecked);
             editTextCarrierNumber = findViewById(R.id.editText_carrierNumber);
-            ccp.registerCarrierNumberEditText(editTextCarrierNumber);
-            mButton = findViewById(R.id.btn_enter_phone_number);
+            editTextCarrierNumber.addTextChangedListener(watcher);
+                     mButton = findViewById(R.id.btn_enter_phone_number);
+                     editTextCarrierNumber.setTransformationMethod(new NumericKeyBoardTransformationMethod());
 
            }
 
@@ -128,5 +112,42 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements Enter
     public void navigateTonextScreen() {
         startActivity(new Intent(this,EnterCodeActivity.class));
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+    TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            String text = editTextCarrierNumber.getText().toString();
+
+
+
+            if (text.length() == 10) {
+                presenter.verifyNumber();
+                return;
+            }
+
+            presenter.defaultSettings();
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
+    private class NumericKeyBoardTransformationMethod extends PasswordTransformationMethod {
+        @Override
+        public CharSequence getTransformation(CharSequence source, View view) {
+            return source;
+        }
     }
 }

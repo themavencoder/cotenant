@@ -13,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.choosemonthlypaymentmvp.ChooseMonthlyPayment;
 
-public class LivingLengthActivity extends AppCompatActivity {
+public class LivingLengthActivity extends AppCompatActivity implements LivingLengthContractor.View {
     Spinner spinner;
     Button mButton;
 
@@ -41,5 +41,15 @@ public class LivingLengthActivity extends AppCompatActivity {
 
     private void init() {
         spinner = findViewById(R.id.billingSpinner);
+    }
+
+    @Override
+    public void navigateNextScreen() {
+
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

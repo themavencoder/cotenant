@@ -73,7 +73,7 @@
         android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#E0E0E0"
+        android:textColor="#A5A5A5"
         android:textStyle="bold"
         android:layout_marginBottom="4dp"
         android:text="New PIN"
@@ -92,16 +92,21 @@
 
         <EditText
 
-            android:id="@+id/confirmeditText_firstcode"
+            android:id="@+id/newpin_one"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:editable="false"
             android:hint="0"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
             android:inputType="phone"
             android:singleLine="true" />
         <EditText
-            android:id="@+id/confirmeditText_secondcode"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
+
+            android:id="@+id/newpin_two"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -111,17 +116,21 @@
             android:inputType="phone"
             android:singleLine="true" />
         <EditText
-            android:id="@+id/confirmeditText_thirdcode"
+            android:id="@+id/newpin_three"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
             android:editable="false"
             android:hint="0"
             android:layout_marginLeft="4dp"
             android:inputType="phone"
             android:singleLine="true" />
         <EditText
-            android:id="@+id/confirmeditText_fourthcode"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
+            android:id="@+id/newpin_four"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -132,8 +141,8 @@
             android:singleLine="true" />
 
         <ImageView
-            android:id="@+id/confirmpositivechecked"
-            android:visibility="visible"
+            android:id="@+id/positivechecked1"
+            android:visibility="invisible"
             android:layout_marginLeft="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +156,7 @@
         android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#E0E0E0"
+        android:textColor="#A5A5A5"
         android:textStyle="bold"
         android:layout_marginTop="18dp"
         android:layout_marginBottom="4dp"
@@ -165,48 +174,56 @@
 
 
         <EditText
-            android:id="@+id/editText_firstcode"
+            android:id="@+id/confirmpin_one"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:editable="false"
             android:hint="0"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
             android:inputType="phone"
             android:singleLine="true" />
         <EditText
-            android:id="@+id/editText_secondcode"
+            android:id="@+id/confirmpin_two"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:editable="false"
             android:hint="0"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
             android:layout_marginLeft="4dp"
             android:inputType="phone"
             android:singleLine="true" />
         <EditText
-            android:id="@+id/editText_thirdcode"
+            android:id="@+id/confirmpin_three"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:editable="false"
             android:hint="0"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
             android:layout_marginLeft="4dp"
             android:inputType="phone"
             android:singleLine="true" />
         <EditText
-            android:id="@+id/editText_fourthcode"
+            android:id="@+id/confirmpin_four"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:editable="false"
+            android:maxLength="1"
+            android:imeOptions="actionNext"
             android:layout_marginLeft="4dp"
             android:hint="0"
             android:inputType="phone"
             android:singleLine="true" />
 
         <ImageView
-            android:id="@+id/positivechecked"
-            android:visibility="visible"
+            android:id="@+id/positivechecked2"
+            android:visibility="invisible"
             android:layout_marginLeft="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -222,7 +239,7 @@
 
         android:layout_marginRight="16dp"
         android:layout_marginTop="32dp"
-    android:id="@+id/btn_choose_pin"
+        android:id="@+id/btn_choose_pin"
         android:background="@drawable/btn_red"
         android:text="Finish"
         android:textAllCaps="false"

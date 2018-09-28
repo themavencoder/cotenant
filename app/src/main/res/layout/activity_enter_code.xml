@@ -46,12 +46,13 @@
             <EditText
                 android:id="@+id/entercode_firstcode"
                 android:layout_width="32dp"
-                android:maxLength="1"
+
                 android:layout_height="wrap_content"
                 android:editable="false"
                 android:layout_marginRight="26dp"
                 android:gravity="center_horizontal"
                 android:hint="0"
+                android:maxLength="1"
                 android:imeOptions="actionNext"
                 android:inputType="phone"
                 android:singleLine="true" />

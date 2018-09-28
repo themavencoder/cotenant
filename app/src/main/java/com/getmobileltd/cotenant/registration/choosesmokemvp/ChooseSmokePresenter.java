@@ -36,12 +36,8 @@ public class ChooseSmokePresenter implements ChooseSmokeContract.Presenter {
 
     @Override
     public void verifyEntries() {
-        String iSmoke = model.getYouSmoke();
-        String youSmoke = model.getStaySmoke();
-        if ((iSmoke != null && youSmoke != null)) {
-            view.setButtonColor(R.drawable.btn_red);
-            view.showButtonClick(true);
-        }
+        view.setButtonColor(R.drawable.btn_red);
+        view.showButtonClick(true);
     }
 
     @Override

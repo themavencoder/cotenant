@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.choosedisabilitymvp.ChooseDisabilityActivity;
 
-public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmokeContract.View {
+public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmokeContract.View, RadioGroup.OnCheckedChangeListener {
     private ChooseSmokeContract.Presenter presenter;
     private RadioGroup mRadioGroupMe, mRadioGroupYou;
     private RadioButton radiobtn1, radiobtn2;
@@ -32,7 +33,9 @@ public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmok
         init();
 
         presenter = new ChooseSmokePresenter(this);
-      //  presenter.defaultSettings();
+      presenter.defaultSettings();
+
+
 
 
 
@@ -61,7 +64,9 @@ public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmok
     private void init() {
         mButton = findViewById(R.id.choosesmoke_button);
         mRadioGroupMe = findViewById(R.id.radiogroup_choosesmoke_one);
+        mRadioGroupMe.setOnCheckedChangeListener(this);
         mRadioGroupYou = findViewById(R.id.radiogroup_choosesmoke_two);
+        mRadioGroupYou.setOnCheckedChangeListener(this);
         /*mRadioButtonOne = findViewById(R.id.radiobutton_choosesmoke_one_yes);
         mRadioButtonTwo = findViewById(R.id.radiobutton_choosesmoke_one_no);
         mRadioButtonThree = findViewById(R.id.radiobutton_choosesmoke_two_yes);
@@ -95,4 +100,31 @@ public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmok
     }
 
 
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        switch (radioGroup.getId()) {
+            case R.id.radiogroup_choosesmoke_one:
+                if (mRadioGroupMe.getCheckedRadioButtonId() != -1 && mRadioGroupYou.getCheckedRadioButtonId() != -1) {
+                    presenter.verifyEntries();
+               }
+               break;
+            case R.id.radiogroup_choosesmoke_two:
+                if (mRadioGroupYou.getCheckedRadioButtonId() != -1 && mRadioGroupMe.getCheckedRadioButtonId() != -1) {
+                    presenter.verifyEntries();
+               }
+               break;
+
+            default:
+                Log.i(getCallingPackage(),"RadioGroupID does not exist");
+
+
+
+        }
+
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

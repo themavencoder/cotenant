@@ -38,13 +38,10 @@ public class ReligionChoicePresenter implements ReligionChoiceContract.Presenter
 
     @Override
     public void verifyEntries() {
-        String personalReligion = model.getPersonalReligion();
-        String roommateReligion = model.getRoomateReligion();
-        if ((personalReligion != null) && (roommateReligion != null)) {
-            view.setButtonColor(R.drawable.btn_red);
-            view.showButtonClick(true);
+        view.setButtonColor(R.drawable.btn_red);
+        view.showButtonClick(true);
 
-        }
+
     }
 
     @Override

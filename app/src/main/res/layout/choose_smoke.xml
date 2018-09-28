@@ -58,7 +58,6 @@
     <RadioGroup
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:checkedButton="@id/radiobutton_choosesmoke_one_yes"
         android:id="@+id/radiogroup_choosesmoke_one"
         android:layout_width="wrap_content"
 
@@ -99,7 +98,6 @@
         android:layout_marginLeft="16dp"
         android:id="@+id/radiogroup_choosesmoke_two"
         android:layout_marginRight="16dp"
-        android:checkedButton="@id/radiobutton_choosesmoke_two_no"
         android:layout_height="wrap_content">
         <RadioButton
             android:layout_width="wrap_content"

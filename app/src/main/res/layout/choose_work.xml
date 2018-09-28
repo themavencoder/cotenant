@@ -57,15 +57,21 @@
         android:textSize="20sp"
 
         />
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_height="wrap_content">
 
     <EditText
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:id="@+id/et_placeofWork"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:hint="Google Inc"
 
         />
+</android.support.design.widget.TextInputLayout>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,7 +81,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="64dp"
 
-        android:background="@color/regButtonColor"
+        android:background="@drawable/btn_ash"
+        android:clickable="false"
 
         android:text="@string/next"
         android:textAllCaps="false"

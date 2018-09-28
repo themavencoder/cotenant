@@ -127,6 +127,11 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
 
         }
     };
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 
 }

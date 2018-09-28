@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.support.v7.widget.AppCompatSpinner;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 
@@ -82,7 +83,17 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
     @Override
     public void navigateToNextScreen() {
         setContentView(R.layout.few_more_questions);
-        startActivity(new Intent(this, ComfortableGenderActivity.class));
+        LinearLayout linearLayout = findViewById(R.id.tapanywheretoContinue);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AboutYouActivity.this, ComfortableGenderActivity.class));
+
+
+            }
+        });
+
+
 
     }
 
@@ -125,5 +136,8 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
         }
     };
-
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+    }
 }

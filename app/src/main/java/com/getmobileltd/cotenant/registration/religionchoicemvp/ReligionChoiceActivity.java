@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.choosesmokemvp.ChooseSmokeActivity;
 
-public class ReligionChoiceActivity extends AppCompatActivity implements ReligionChoiceContract.View {
+public class ReligionChoiceActivity extends AppCompatActivity implements ReligionChoiceContract.View, RadioGroup.OnCheckedChangeListener {
 
 
     private ReligionChoiceContract.Presenter presenter;
@@ -34,8 +34,7 @@ RadioButton selectedRadioButton1,selectedRadioButton2;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         init();
         presenter = new ReligionChoicePresenter(this);
-        radioGroup1 = findViewById(R.id.myreligion);
-        radioGroup2 = findViewById(R.id.roomatereligion);
+        presenter.defaultSettings();
 
 
 
@@ -71,6 +70,10 @@ RadioButton selectedRadioButton1,selectedRadioButton2;
     private void init() {
 
         mButton = findViewById(R.id.btn_choose_religion);
+        radioGroup1 = findViewById(R.id.myreligion);
+        radioGroup2 = findViewById(R.id.roomatereligion);
+radioGroup1.setOnCheckedChangeListener(this);
+radioGroup2.setOnCheckedChangeListener(this);
 
 
 
@@ -103,5 +106,27 @@ RadioButton selectedRadioButton1,selectedRadioButton2;
     @Override
     public void showError(String error) {
         Toast.makeText(getApplicationContext(),error,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        switch (radioGroup.getId()) {
+            case R.id.myreligion:
+                if (radioGroup1.getCheckedRadioButtonId() != -1 && radioGroup2.getCheckedRadioButtonId() != -1) {
+                    presenter.verifyEntries();
+
+                }
+            case R.id.roomatereligion:
+                if (radioGroup2.getCheckedRadioButtonId() != -1 && radioGroup1.getCheckedRadioButtonId() != -1) {
+                    presenter.verifyEntries();
+
+                }
+        }
+
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

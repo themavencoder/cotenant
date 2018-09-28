@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_marginLeft="16dp"
     android:orientation="vertical"
-    android:layout_marginTop="40dp"
+    android:id="@+id/tapanywheretoContinue"
+    android:layout_marginTop="56dp"
     android:layout_marginRight="64dp"
     android:layout_height="match_parent">
 
@@ -28,8 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:layout_marginTop="48dp"
-        android:textSize="24sp"
+        android:layout_marginTop="80dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:text="Tap anywhere to continue"
         />

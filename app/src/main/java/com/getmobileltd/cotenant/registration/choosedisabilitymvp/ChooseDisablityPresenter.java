@@ -1,5 +1,7 @@
 package com.getmobileltd.cotenant.registration.choosedisabilitymvp;
 
+import com.getmobileltd.cotenant.R;
+
 public class ChooseDisablityPresenter implements ChooseDisablityContract.Presenter {
 
     private ChooseDisablityModel model;
@@ -30,11 +32,14 @@ public class ChooseDisablityPresenter implements ChooseDisablityContract.Present
 
     @Override
     public void defaultSettings() {
-
+        view.setButtonColor(R.drawable.btn_ash);
+        view.showButtonClick(false);
     }
 
     @Override
     public void verifyEntries() {
+        view.setButtonColor(R.drawable.btn_red);
+        view.showButtonClick(true);
 
     }
 

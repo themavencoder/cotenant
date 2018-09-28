@@ -58,7 +58,6 @@
         android:layout_marginRight="16dp"
         android:id="@+id/myreligion"
         android:layout_width="wrap_content"
-        android:checkedButton="@id/radiobutton_christian_personal_choose_religion"
 
         android:layout_height="wrap_content">
 <RadioButton
@@ -95,7 +94,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:id="@+id/roomatereligion"
-        android:checkedButton="@id/radiobutton_christian_roomate_choose_religion"
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content">
