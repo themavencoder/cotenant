@@ -67,7 +67,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/card"
+                    android:drawableEnd="@drawable/card_drawable"
+                    android:drawableRight="@drawable/card_drawable"
                     android:paddingRight="8dp"
                     android:hint="Card number" />
 
