@@ -9,10 +9,8 @@
    android:layout_marginBottom="24dp">
 
 
-
-    <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -20,9 +18,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/sample_image"
             android:layout_width="160dp"
             android:layout_height="136dp"
-            android:id="@+id/sample_image"
             android:layout_marginBottom="12dp"
             android:scaleType="centerCrop"
             android:src="@drawable/interests_apartment"
@@ -38,10 +36,10 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:text="Family Apartment"
                 android:textSize="16sp"
+                android:textColor="@color/black"
 
                 />
 
@@ -51,11 +49,12 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
+
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="8dp"
+                    android:layout_width="16dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/figma_bed" />
+                    app:srcCompat="@drawable/figma_bed" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -64,11 +63,11 @@
                     android:text="0-2 Beds" />
 
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="8dp"
+                    android:layout_width="16dp"
+                    android:layout_height="10dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="16dp"
-                    android:src="@drawable/figma_bath" />
+                    app:srcCompat="@drawable/figma_bath" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -88,7 +87,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_location_on_black_24dp" />
+                    app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,11 +100,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
                 android:layout_marginTop="8dp"
                 android:text="NGN 150,000"
-                />
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
         </LinearLayout>
 
 

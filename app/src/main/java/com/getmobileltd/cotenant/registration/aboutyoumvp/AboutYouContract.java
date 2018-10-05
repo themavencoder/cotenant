@@ -19,6 +19,8 @@ public interface AboutYouContract {
         void saveData(String firstName, String lastName, String gender);
         void displayError();
         void displayError2();
+        String firstName();
+        String lastName();
 
     }
 }

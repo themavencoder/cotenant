@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity"
+    android:background="@color/white"
+    >
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Preferred Location"
+        android:paddingBottom="22dp"
+        android:textColor="@color/white"
+        android:paddingTop="22dp"
+        android:paddingLeft="12dp"
+        android:gravity="center_vertical"
+
+        android:background="@color/regButtonColor"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_title"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp"
+        android:hint="Input your new location"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/dialog_positive_btn"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/et_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="74dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/btn_red"
+        android:text="Save"
+        android:textStyle="bold"
+      android:layout_marginBottom="24dp"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/dialog_negative_btn"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+
+        android:layout_marginBottom="24dp"
+        android:layout_below="@+id/et_name"
+        android:layout_marginTop="74dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/dialog_positive_btn"
+        android:background="@drawable/btn_white"
+        android:text="Cancel"
+        android:textColor="@color/regButtonColor"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+</RelativeLayout>

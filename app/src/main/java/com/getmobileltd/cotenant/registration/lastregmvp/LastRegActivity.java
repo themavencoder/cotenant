@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.TestActivity;
 import com.getmobileltd.cotenant.dashboard.DefaultDashboard;
 
 public class LastRegActivity extends AppCompatActivity {

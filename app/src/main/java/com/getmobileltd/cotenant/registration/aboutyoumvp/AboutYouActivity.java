@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.comfortablegendermvp.ComfortableGenderActivity;
 
@@ -47,6 +48,9 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
              presenter.loadNextScreen();
 
+               AppInstance app = AppInstance.getInstance();
+               app.setFirstName(presenter.firstName());
+               app.setLastName(presenter.lastName());
 
 
            }

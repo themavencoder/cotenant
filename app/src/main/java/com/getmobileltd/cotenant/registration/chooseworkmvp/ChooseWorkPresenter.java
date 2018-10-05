@@ -35,4 +35,14 @@ public class ChooseWorkPresenter implements ChooseWorkContractor.Presenter {
         view.enableButtonColor(R.drawable.btn_red);
 
     }
+
+    @Override
+    public void save(String work) {
+        model.setPlaceOfWork(work);
+    }
+
+    @Override
+    public String work() {
+        return model.getPlaceOfWork();
+    }
 }

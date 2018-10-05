@@ -14,6 +14,8 @@ public interface ChooseWorkContractor  {
             void displayError();
             void defaultSettings();
             void verify();
+            void save(String work);
+            String work();
         }
 
 }

@@ -9,7 +9,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.salaryrangemvp.SalaryRangeActivity;
 
@@ -33,7 +35,14 @@ public class ChooseWorkActivity extends AppCompatActivity implements ChooseWorkC
        mButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               presenter.save(mEditText.getText().toString());
+               Toast.makeText(ChooseWorkActivity.this, mEditText.getText().toString(), Toast.LENGTH_SHORT).show();
                presenter.loadNextScreen();
+               AppInstance app = AppInstance.getInstance();
+               app.setWork(presenter.work());
+
+
+
 
            }
        });

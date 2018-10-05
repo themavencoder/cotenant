@@ -1,5 +1,6 @@
 package com.getmobileltd.cotenant.registration.aboutyoumvp;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 
 public class AboutYouPresenter implements AboutYouContract.Presenter{
@@ -9,6 +10,8 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
     public AboutYouPresenter(AboutYouContract.View view) {
         this.view = view;
         model = new AboutYouModel();
+
+
     }
 
     @Override
@@ -24,6 +27,7 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
         String firstName = model.getFirst_name();
         String lastName = model.getLast_name();
         String gender = model.getGender();
+
 
         if (firstName.isEmpty() || lastName.isEmpty() || gender.isEmpty()) {
                 defaultSettings();
@@ -60,4 +64,17 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
     public void displayError2() {
         view.showError2("Your last name should be more than 3 characters");
     }
+
+    @Override
+    public String firstName() {
+       return model.getFirst_name();
+    }
+
+
+    @Override
+    public String lastName() {
+        return model.getLast_name();
+    }
+
+
 }

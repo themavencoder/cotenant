@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.registration.chooseworkmvp.ChooseWorkActivity;
 import com.getmobileltd.cotenant.registration.lastregmvp.LastRegActivity;
 
 
@@ -42,6 +44,8 @@ public class AppPinActivity extends AppCompatActivity implements AppPinContract.
                 presenter.loadNextScreen();
             }
         });
+
+
 
 
     }
