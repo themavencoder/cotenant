@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.getmobileltd.cotenant.registration.chooseworkmvp.ChooseWorkModel;
 
-public class AppInstance extends Application{
+public class AppInstance{
     private static AppInstance sInstance = null;
 private String firstName;
 private String lastName;
