@@ -14,10 +14,11 @@ public class EnterCodeModel {
     private String thirdcode;
     @Expose(deserialize = false)
     private String fourthcode;
-    @SerializedName("code")
-        private Integer code;
     @SerializedName("email")
     private String email;
+
+    @SerializedName("code")
+        private int code;
 
     public EnterCodeModel(String firstcode, String secondcode, String thirdcode, String fourthcode) {
         this.firstcode = firstcode;
@@ -29,10 +30,10 @@ public class EnterCodeModel {
     public EnterCodeModel() {
 
     }
-    public EnterCodeModel(Integer code) {
+    public EnterCodeModel(int code) {
         this.code = code;
     }
-    public EnterCodeModel(String email, Integer code) {
+    public EnterCodeModel(String email, int code) {
         this.email = email;
         this.code = code;
     }
@@ -77,11 +78,11 @@ public class EnterCodeModel {
         this.fourthcode = fourthcode;
     }
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 }

@@ -29,6 +29,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
     private ImageView positiveChecked;
     private EnterCodeContract.Presenter presenter;
     private AppInstance app;
+    private EnterCodeModel model;
     private ApiService apiService;
 
 
@@ -49,38 +50,33 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         mEnterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 app = AppInstance.getInstance();
-                String email = app.getEmailAddress();
-                Integer code = presenter.showSavedCode();
-                verifyEntry(new EnterCodeModel(email,code));
+
+                model = new EnterCodeModel();
+               verifyEntry(model);
 
 
             }
         });
     }
 
-    private void verifyEntry(EnterCodeModel enterCodeModel) {
-
-        apiService.createUser(enterCodeModel).enqueue(new Callback<EnterCodeResponse>() {
-            @Override
-            public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
-                if (response.body().getStatus() == 200) {
-                    Toast.makeText(EnterCodeActivity.this, "Matched with the database!", Toast.LENGTH_SHORT).show();
-                    presenter.loadNextScreen();
-
-                } else {
-                    Toast.makeText(EnterCodeActivity.this, "Code did not match with database" + response.body().getStatus(), Toast.LENGTH_SHORT).show();
+    private void verifyEntry(EnterCodeModel model) {
+        ApiService mApiService = Client.getClient().create(ApiService.class);
+            Call<EnterCodeResponse> call = mApiService.createUser(model);
+            call.enqueue(new Callback<EnterCodeResponse>() {
+                @Override
+                public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
+                    if (response.body().getStatus().equals("200"))   {
+                        Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getSuccess(), Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<EnterCodeResponse> call, Throwable t) {
-                Toast.makeText(EnterCodeActivity.this, "caused by" + t.getCause(), Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Call<EnterCodeResponse> call, Throwable t) {
 
-            }
-        });
-
-
+                }
+            });
     }
 
     private void init() {
