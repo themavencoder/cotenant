@@ -2,6 +2,8 @@
     <string name="app_name">Cotenant</string>
     <string name="FACEBOOK_APP_ID">2069513483100637</string>
     <string name="ACCOUNT_KIT_CLIENT_TOKEN">431351823ad1589deb2420d64293adbe</string>
+    <string name="ak_login_protocol_scheme">ak431351823ad1589deb2420d64293adbe</string>
+
     <string name="next">Next</string>
     <string name="thankyou">Thank you!</string>
     <string name="christian">Christian</string>
@@ -12,7 +14,7 @@
 
     <string name="Open">Open</string>
     <string name="Close">Close</string>
-    <string name="four_digit_code">Enter the 4 digit code sent to your mobile number</string>
+    <string name="four_digit_code">Enter the 4 digit code sent to your email address</string>
     <string name="gender">Gender</string>
     <string name="permissions_read_phone_state_message">
         Grant permission to read your phone number from your device to pre-fill.
@@ -21,7 +23,6 @@
     <string name="permissions_read_phone_state_title">Read Phone Number</string>
 
 
-    <string name="ak_login_protocol_scheme">ak431351823ad1589deb2420d64293adbe</string>
 
 
     <string-array name="Gender">

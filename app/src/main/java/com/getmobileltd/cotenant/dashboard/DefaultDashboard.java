@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.availablespacechecked.AvailableSpaceChecked;
 import com.getmobileltd.cotenant.history.HistoryActivity;
 import com.getmobileltd.cotenant.interest.InterestActivity;
 import com.getmobileltd.cotenant.mergedashboard.MergedDashboard;
@@ -73,7 +74,7 @@ public class DefaultDashboard extends AppCompatActivity {
                         break;
 
                     case R.id.available_space:
-                        startActivity(new Intent(DefaultDashboard.this, MergedDashboard.class));
+                        startActivity(new Intent(DefaultDashboard.this, AvailableSpaceChecked.class));
                         break;
                     case R.id.interest:
                         startActivity(new Intent(DefaultDashboard.this, InterestActivity.class));

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
 
@@ -34,10 +35,19 @@ public class LivingLengthActivity extends AppCompatActivity implements LivingLen
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LivingLengthActivity.this, ChooseMonthlyPayment.class));
+                setContentView(R.layout.wrap_it_up);
+                LinearLayout wrapitup = findViewById(R.id.wrapitup);
+                wrapitup.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(LivingLengthActivity.this, ChooseMonthlyPayment.class));
+
+                    }
+                });
             }
         });
     }
+
 
     private void init() {
         spinner = findViewById(R.id.billingSpinner);

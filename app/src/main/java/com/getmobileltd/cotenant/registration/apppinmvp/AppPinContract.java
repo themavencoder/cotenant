@@ -17,6 +17,7 @@ public interface AppPinContract {
         void verifyEntries();
         void displayPasswordError(String error);
         void savePassword(String password);
+        String appPassword();
         String appendIndvidualPassword(String first, String second, String third, String fourth);
     }
 }

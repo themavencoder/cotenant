@@ -1,7 +1,23 @@
 package com.getmobileltd.cotenant.registration.entercodemvp;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
 public class EnterCodeModel {
-  private  String firstcode, secondcode,thirdcode, fourthcode;
+    @Expose(deserialize = false)
+    private String firstcode;
+    @Expose(deserialize = false)
+    private String secondcode;
+    @Expose(deserialize = false)
+    private String thirdcode;
+    @Expose(deserialize = false)
+    private String fourthcode;
+    @SerializedName("code")
+        private Integer code;
+    @SerializedName("email")
+    private String email;
 
     public EnterCodeModel(String firstcode, String secondcode, String thirdcode, String fourthcode) {
         this.firstcode = firstcode;
@@ -11,6 +27,22 @@ public class EnterCodeModel {
     }
 
     public EnterCodeModel() {
+
+    }
+    public EnterCodeModel(Integer code) {
+        this.code = code;
+    }
+    public EnterCodeModel(String email, Integer code) {
+        this.email = email;
+        this.code = code;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstcode() {
@@ -43,5 +75,13 @@ public class EnterCodeModel {
 
     public void setFourthcode(String fourthcode) {
         this.fourthcode = fourthcode;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 }

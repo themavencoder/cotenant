@@ -22,6 +22,7 @@ public interface EnterCodeContract {
         String appendStrings(String firstcode, String secondcode, String thirdcode, String fourthcode);
         void saveCode(String first, String second, String third, String fourth);
         void loadNextScreen();
+        Integer showSavedCode();
 
 
 

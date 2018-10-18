@@ -1,15 +1,14 @@
 package com.getmobileltd.cotenant.registration.aboutyoumvp;
 
-import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 
 public class AboutYouPresenter implements AboutYouContract.Presenter{
     private AboutYouContract.View view;
-    private AboutYouModel model;
+    private Data model;
 
     public AboutYouPresenter(AboutYouContract.View view) {
         this.view = view;
-        model = new AboutYouModel();
+        model = new Data();
 
 
     }
@@ -27,9 +26,11 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
         String firstName = model.getFirst_name();
         String lastName = model.getLast_name();
         String gender = model.getGender();
+        String emailAddress = model.getEmail();
+        String phoneNumber = model.getPhone_number();
 
 
-        if (firstName.isEmpty() || lastName.isEmpty() || gender.isEmpty()) {
+        if (firstName.isEmpty() || lastName.isEmpty() || gender.isEmpty() || emailAddress.isEmpty() || phoneNumber.isEmpty()) {
                 defaultSettings();
         return;
         }
@@ -48,9 +49,11 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
     }
 
     @Override
-    public void saveData(String firstName, String lastName, String gender) {
+    public void saveData(String firstName, String lastName, String emailAddress, String phoneNumber, String gender) {
         model.setFirst_name(firstName);
         model.setLast_name(lastName);
+        model.setEmail(emailAddress);
+        model.setPhone_number(phoneNumber);
         model.setGender(gender);
 
     }
@@ -74,6 +77,21 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
     @Override
     public String lastName() {
         return model.getLast_name();
+    }
+
+    @Override
+    public String emailAddress() {
+        return model.getEmail();
+    }
+
+    @Override
+    public String phoneNumber() {
+        return model.getPhone_number();
+    }
+
+    @Override
+    public String gender() {
+        return model.getGender();
     }
 
 

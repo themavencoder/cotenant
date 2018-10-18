@@ -44,20 +44,26 @@ public class MainActivity extends AppCompatActivity {
            startActivity(new Intent(this,AboutYouActivity.class));
 
        } else {
-           onLogin(LoginType.PHONE);
+           onLogin(LoginType.EMAIL);
        }
 
     }
 
     private void onLogin(LoginType phone) {
-       final Intent intent = new Intent(this, AccountKitActivity.class);
-        AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder = new AccountKitConfiguration.AccountKitConfigurationBuilder(LoginType.PHONE,AccountKitActivity.ResponseType.TOKEN);
+        final Intent intent = new Intent(this, AccountKitActivity.class);
+        AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder = new AccountKitConfiguration.AccountKitConfigurationBuilder(LoginType.EMAIL,AccountKitActivity.ResponseType.TOKEN);
         uiManager = new SkinManager(SkinManager.Skin.CONTEMPORARY, Color.parseColor("#EC1D24"));
         configurationBuilder.setUIManager(uiManager);
         intent.putExtra(AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,configurationBuilder.build());
        startActivityForResult(intent,REQUEST_CODE);
+        /*Intent intent = new Intent(this, AccountKitActivity.class);
+        AccountKitConfiguration.AccountKitConfigurationBuilder configurationBuilder = new AccountKitConfiguration.AccountKitConfigurationBuilder(LoginType.EMAIL,AccountKitActivity.ResponseType.TOKEN);
+        uiManager = new SkinManager(SkinManager.Skin.CONTEMPORARY, Color.parseColor("#EC1D24"));
+        configurationBuilder.setUIManager(uiManager);
+        intent.putExtra(AccountKitActivity.ACCOUNT_KIT_ACTIVITY_CONFIGURATION,configurationBuilder.build());
+        startActivityForResult(intent,REQUEST_CODE);
 
-
+*/
 
     }
 

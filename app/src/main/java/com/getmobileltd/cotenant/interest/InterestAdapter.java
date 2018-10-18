@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.getmobileltd.cotenant.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +35,24 @@ public class InterestAdapter extends RecyclerView.Adapter<InterestAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-holder.imageView.setImageResource(modelList.get(position).getInterestImage());
+        Picasso.with(context)
+        .load(modelList.get(position).getInterestImage())
+                .placeholder(R.drawable.spinner_of_dots)
+                .into(holder.imageView);
 
     }
 
     @Override
     public int getItemCount() {
-        return modelList.size();
+
+        int requiredSize;
+        if (modelList != null && !modelList.isEmpty()) {
+            requiredSize = modelList.size();
+        }
+        else {
+            requiredSize = 0;
+        }
+        return requiredSize;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{

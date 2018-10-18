@@ -8,4 +8,6 @@
     <color name="green">#219653</color>
     <color name="unselectColor">#959595</color>
     <color name = "black">#000000</color>
+    <color name="active_dots">#FB1949</color>
+    <color name="inactive_dots">#FFFFFF</color>
 </resources>

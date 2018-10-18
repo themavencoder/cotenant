@@ -14,6 +14,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.apppinmvp.AppPinActivity;
+import com.getmobileltd.cotenant.registration.lastregmvp.LastRegActivity;
 
 
 public class ChooseMonthlyPayment extends AppCompatActivity  implements ChooseMonthlyPaymentContractor.View{
@@ -76,15 +77,7 @@ private ChooseMonthlyPaymentContractor.Presenter presenter;
 
     @Override
     public void navigateScreen() {
-        setContentView(R.layout.wrap_it_up);
-        findViewById(R.id.wrapitup).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ChooseMonthlyPayment.this, AppPinActivity.class));
-
-
-            }
-        });
+        startActivity(new Intent(getApplicationContext(), LastRegActivity.class));
 
     }
     @Override

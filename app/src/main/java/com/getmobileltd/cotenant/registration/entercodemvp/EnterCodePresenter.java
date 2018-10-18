@@ -10,18 +10,19 @@ import java.util.TreeSet;
 public class EnterCodePresenter implements EnterCodeContract.Presenter {
     private EnterCodeContract.View view;
     private EnterCodeModel model;
+    private Integer code;
 
     public EnterCodePresenter(EnterCodeContract.View view) {
         this.view = view;
-        this.model = new EnterCodeModel();
+        model = new EnterCodeModel();
     }
 
     @Override
     public void verifyCode() {
         if (appendStrings(model.getFirstcode(),model.getSecondcode(),model.getThirdcode(),model.getFourthcode()).length() == 4) {
-            view.enableButtonColor(R.drawable.btn_red);
-            view.enableButtonClick(true);
-            view.enablePositiveChecked();
+                view.enableButtonColor(R.drawable.btn_red);
+                view.enableButtonClick(true);
+                view.enablePositiveChecked();
 
 
         } else {
@@ -57,11 +58,21 @@ public class EnterCodePresenter implements EnterCodeContract.Presenter {
 
         String a = appendStrings(model.getFirstcode(),model.getSecondcode(),model.getThirdcode(),model.getFourthcode());
 
+    code = Integer.parseInt(a);
+    model.setCode(code);
+
         Log.d("Codesaved","Your code has been saved" + a);
+
+
     }
 
     @Override
     public void loadNextScreen() {
         view.navigateTonextScreen();
+    }
+
+    @Override
+    public Integer showSavedCode() {
+        return model.getCode();
     }
 }

@@ -3,6 +3,7 @@ package com.getmobileltd.cotenant.registration.aboutyoumvp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -15,18 +16,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.registration.apppinmvp.AppPinActivity;
 import com.getmobileltd.cotenant.registration.comfortablegendermvp.ComfortableGenderActivity;
 
 public class AboutYouActivity extends AppCompatActivity implements AboutYouContract.View {
     private AppCompatSpinner spinner;
     private Button mButton;
     private AboutYouContract.Presenter presenter;
-    private EditText mFirstName, mLastName;
-
+    private EditText mFirstName, mLastName, mPhoneNumber, mEmailAddress;
+    private TextInputLayout t1, t2;
 
 
     @Override
@@ -40,36 +43,44 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
         presenter.defaultSettings();
 
 
-       mButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               String text = spinner.getSelectedItem().toString();
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = spinner.getSelectedItem().toString();
 
 
-             presenter.loadNextScreen();
+                presenter.loadNextScreen();
 
-               AppInstance app = AppInstance.getInstance();
-               app.setFirstName(presenter.firstName());
-               app.setLastName(presenter.lastName());
+                AppInstance app = AppInstance.getInstance();
+                app.setFirstName(presenter.firstName());
+                app.setLastName(presenter.lastName());
+                app.setEmailAddress(presenter.emailAddress());
+                app.setPhone_number(presenter.phoneNumber());
+                app.setGender(presenter.gender());
 
 
-           }
-       });
+            }
+        });
 
     }
 
     private void init() {
         spinner = findViewById(R.id.genderSpinner);
+        t1 = findViewById(R.id.t1);
+        t2 = findViewById(R.id.t2);
         mButton = findViewById(R.id.btn_reg_about_you);
         mFirstName = findViewById(R.id.firstname_reg_about_you);
         mLastName = findViewById(R.id.lastname_reg_abou_you);
-        ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this,R.array.Gender,android.R.layout.simple_spinner_item);
+        mEmailAddress = findViewById(R.id.ediText_emailAddress);
+        mPhoneNumber = findViewById(R.id.editText_phoneNumber);
+        ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.Gender, android.R.layout.simple_spinner_item);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(genderAdapter);
         spinner.setSelection(0);
         mFirstName.addTextChangedListener(watch);
         mLastName.addTextChangedListener(watch);
-
+        mEmailAddress.addTextChangedListener(watch);
+        mPhoneNumber.addTextChangedListener(watch);
     }
 
     @Override
@@ -86,29 +97,29 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
     @Override
     public void navigateToNextScreen() {
-        setContentView(R.layout.few_more_questions);
+      /*  setContentView(R.layout.few_more_questions);
         LinearLayout linearLayout = findViewById(R.id.tapanywheretoContinue);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AboutYouActivity.this, ComfortableGenderActivity.class));
+            public void onClick(View view) {*/
+        startActivity(new Intent(AboutYouActivity.this, AppPinActivity.class));
 
 
-            }
-        });
-
+        /*    }
+        });*/
 
 
     }
 
     @Override
     public void showError(String error) {
-        mFirstName.setError(error);
+        t1.setError(error);
+
     }
 
     @Override
     public void showError2(String error) {
-        mLastName.setError(error);
+        t2.setError(error);
     }
 
     TextWatcher watch = new TextWatcher() {
@@ -119,20 +130,35 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        String firstname = mFirstName.getText().toString().trim();
-        String lastName = mLastName.getText().toString().trim();
-        if (firstname.length() < 3) {
-            presenter.displayError();
-            return;
+            String firstname = mFirstName.getText().toString().trim();
+            String lastName = mLastName.getText().toString().trim();
+            String emailAddress = mEmailAddress.getText().toString().trim();
+            String phoneNumber = mPhoneNumber.getText().toString().trim();
+            if (firstname.length() < 3) {
+                presenter.displayError();
+                presenter.defaultSettings();
+                return;
 
             }
             if (lastName.length() < 3) {
-            presenter.displayError2();
-            return;
+                presenter.displayError2();
+                presenter.defaultSettings();
+                return;
             }
+            if (emailAddress.isEmpty()) {
+                presenter.defaultSettings();
+                return;
+            }
+            if (phoneNumber.isEmpty()) {
+                presenter.defaultSettings();
 
-            presenter.saveData(firstname,lastName,spinner.getSelectedItem().toString());
+                return;
+
+            }
+            presenter.saveData(firstname, lastName, emailAddress, phoneNumber, spinner.getSelectedItem().toString());
             presenter.verifyEntries();
+
+
         }
 
         @Override
@@ -140,8 +166,5 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
         }
     };
-    @Override
-    public void onBackPressed() {
-        finishAffinity();
-    }
 }
+

@@ -1,19 +1,23 @@
 package com.getmobileltd.cotenant.interest;
 
+import com.google.gson.annotations.SerializedName;
+
 public class InterestModel {
 
-    private int interestImage;
 
-    public InterestModel(int interestImage) {
+    @SerializedName("poster_path")
+    private String interestImage;
+
+    public InterestModel(String interestImage) {
         this.interestImage = interestImage;
     }
 
-    public int getInterestImage() {
+    public String getInterestImage() {
 
-        return interestImage;
+        return "https://image.tmdb.org/t/p/w500" + interestImage;
     }
 
-    public void setInterestImage(int interestImage) {
+    public void setInterestImage(String interestImage) {
         this.interestImage = interestImage;
     }
 

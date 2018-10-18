@@ -1,8 +1,8 @@
 package com.getmobileltd.cotenant.registration.entercodemvp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -11,39 +11,77 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
-import com.getmobileltd.cotenant.registration.aboutyoumvp.AboutYouActivity;
+import com.getmobileltd.cotenant.registration.apppinmvp.Client;
+import com.getmobileltd.cotenant.registration.comfortablegendermvp.ComfortableGenderActivity;
 
-public class EnterCodeActivity extends AppCompatActivity implements EnterCodeContract.View{
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class EnterCodeActivity extends AppCompatActivity implements EnterCodeContract.View {
     private Button mEnterbutton;
-   private  EditText mFirstCode, mSecondCode, mThirdCode, mFourthCode;
-  private ImageView positiveChecked;
-  private EnterCodeContract.Presenter presenter;
+    private EditText mFirstCode, mSecondCode, mThirdCode, mFourthCode;
+    private ImageView positiveChecked;
+    private EnterCodeContract.Presenter presenter;
+    private AppInstance app;
+    private ApiService apiService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_enter_code);
         presenter = new EnterCodePresenter(this);
         init();
         presenter.defaultSettings();
 
+
+
+
         mEnterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.loadNextScreen();
+                app = AppInstance.getInstance();
+                String email = app.getEmailAddress();
+                Integer code = presenter.showSavedCode();
+                verifyEntry(new EnterCodeModel(email,code));
 
 
             }
         });
     }
 
+    private void verifyEntry(EnterCodeModel enterCodeModel) {
+
+        apiService.createUser(enterCodeModel).enqueue(new Callback<EnterCodeResponse>() {
+            @Override
+            public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
+                if (response.body().getStatus() == 200) {
+                    Toast.makeText(EnterCodeActivity.this, "Matched with the database!", Toast.LENGTH_SHORT).show();
+                    presenter.loadNextScreen();
+
+                } else {
+                    Toast.makeText(EnterCodeActivity.this, "Code did not match with database" + response.body().getStatus(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EnterCodeResponse> call, Throwable t) {
+                Toast.makeText(EnterCodeActivity.this, "caused by" + t.getCause(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
 
     private void init() {
         mEnterbutton = findViewById(R.id.entercode_nextbutton);
@@ -56,8 +94,11 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         mSecondCode.addTextChangedListener(watch);
         mThirdCode.addTextChangedListener(watch);
         mFourthCode.addTextChangedListener(watch);
+        Client client = new Client();
+        apiService = client.getClient().create(ApiService.class);
 
     }
+
     @Override
     public void enableButtonClick(boolean b) {
         mEnterbutton.setEnabled(b);
@@ -72,7 +113,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
 
     @Override
     public void showError(String error) {
-        Toast.makeText(this,error,Toast.LENGTH_SHORT);
+        Toast.makeText(this, error, Toast.LENGTH_SHORT);
 
     }
 
@@ -96,9 +137,17 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
     @Override
     public void navigateTonextScreen() {
         setContentView(R.layout.phonenumber_verified);
-        startActivity(new Intent(this, AboutYouActivity.class));
+        setContentView(R.layout.few_more_questions);
+        LinearLayout linearLayout = findViewById(R.id.tapanywheretoContinue);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ComfortableGenderActivity.class));
+            }
+        });
 
     }
+
     TextWatcher watch = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -107,12 +156,11 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            presenter.saveCode(mFirstCode.getText().toString(),mSecondCode.getText().toString(),mThirdCode.getText().toString(),mFourthCode.getText().toString());
-            presenter.verifyCode();
+                        presenter.saveCode(mFirstCode.getText().toString(), mSecondCode.getText().toString(), mThirdCode.getText().toString(), mFourthCode.getText().toString());
 
             EditText text = (EditText) getCurrentFocus();
             if (text != null && text.length() > 0) {
-                View next  = text.focusSearch(View.FOCUS_RIGHT);
+                View next = text.focusSearch(View.FOCUS_RIGHT);
                 if (next != null) {
                     next.requestFocus();
                 }
@@ -127,6 +175,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
 
         }
     };
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

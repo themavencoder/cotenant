@@ -39,7 +39,7 @@ public class ChooseWorkActivity extends AppCompatActivity implements ChooseWorkC
                Toast.makeText(ChooseWorkActivity.this, mEditText.getText().toString(), Toast.LENGTH_SHORT).show();
                presenter.loadNextScreen();
                AppInstance app = AppInstance.getInstance();
-               app.setWork(presenter.work());
+
 
 
 

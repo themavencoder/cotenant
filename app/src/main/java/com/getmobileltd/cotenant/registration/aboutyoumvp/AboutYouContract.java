@@ -16,11 +16,14 @@ public interface AboutYouContract {
         void defaultSettings();
         void verifyEntries();
         void loadNextScreen();
-        void saveData(String firstName, String lastName, String gender);
+        void saveData(String firstName, String lastName, String emailAddress, String phoneNumber, String gender);
         void displayError();
         void displayError2();
         String firstName();
         String lastName();
+        String emailAddress();
+        String phoneNumber();
+        String gender();
 
     }
 }

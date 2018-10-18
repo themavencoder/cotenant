@@ -48,6 +48,11 @@ public class AppPinPresenter implements AppPinContract.Presenter {
     }
 
     @Override
+    public String appPassword() {
+        return model.getPassword();
+    }
+
+    @Override
     public String appendIndvidualPassword(String first, String second, String third, String fourth) {
         StringBuilder sb = new StringBuilder();
         sb.append(first).append(second).append(third).append(fourth);
