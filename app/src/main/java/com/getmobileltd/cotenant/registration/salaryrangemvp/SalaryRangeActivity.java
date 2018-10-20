@@ -10,13 +10,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.chooselivemvp.ChooseLiveActivity;
 import com.getmobileltd.cotenant.registration.livinglengthmvp.LivingLengthActivity;
 
 public class SalaryRangeActivity extends AppCompatActivity {
-    Spinner spinner;
-    Button mButton;
+    private Spinner spinner;
+    private Button mButton;
+    private AppInstance app;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

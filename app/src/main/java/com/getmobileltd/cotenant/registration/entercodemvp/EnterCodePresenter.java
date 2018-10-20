@@ -59,7 +59,7 @@ public class EnterCodePresenter implements EnterCodeContract.Presenter {
         String a = appendStrings(model.getFirstcode(),model.getSecondcode(),model.getThirdcode(),model.getFourthcode());
 
     code = Integer.parseInt(a);
-    model.setCode(code);
+    model.setCode(String.valueOf(code));
 
         Log.d("Codesaved","Your code has been saved" + a);
 
@@ -72,7 +72,7 @@ public class EnterCodePresenter implements EnterCodeContract.Presenter {
     }
 
     @Override
-    public Integer showSavedCode() {
+    public String showSavedCode() {
         return model.getCode();
     }
 }

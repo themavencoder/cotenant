@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.registration.aboutyoumvp.AboutYouActivity;
 import com.getmobileltd.cotenant.registration.apppinmvp.Client;
 import com.getmobileltd.cotenant.registration.comfortablegendermvp.ComfortableGenderActivity;
 
@@ -42,9 +43,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         setContentView(R.layout.activity_enter_code);
         presenter = new EnterCodePresenter(this);
         init();
-        presenter.defaultSettings();
-
-
+       // presenter.defaultSettings();
 
 
         mEnterbutton.setOnClickListener(new View.OnClickListener() {
@@ -52,9 +51,10 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
             public void onClick(View view) {
 
                 app = AppInstance.getInstance();
-
-                model = new EnterCodeModel();
-               verifyEntry(model);
+            String savedcode = presenter.showSavedCode();
+            String code = String.valueOf(savedcode);
+                model = new EnterCodeModel(app.getEmailAddress(),code);
+                verifyEntry(model);
 
 
             }
@@ -63,20 +63,24 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
 
     private void verifyEntry(EnterCodeModel model) {
         ApiService mApiService = Client.getClient().create(ApiService.class);
-            Call<EnterCodeResponse> call = mApiService.createUser(model);
-            call.enqueue(new Callback<EnterCodeResponse>() {
-                @Override
-                public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
-                    if (response.body().getStatus().equals("200"))   {
-                        Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getSuccess(), Toast.LENGTH_SHORT).show();
-                    }
+        Call<EnterCodeResponse> call = mApiService.createUser(model);
+        call.enqueue(new Callback<EnterCodeResponse>() {
+            @Override
+            public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
+                if (response.body().getStatus().equals("200")) {
+                    Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getSuccess(), Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(EnterCodeActivity.this, ComfortableGenderActivity.class));
                 }
-
-                @Override
-                public void onFailure(Call<EnterCodeResponse> call, Throwable t) {
-
+                 else {
+                    Toast.makeText(EnterCodeActivity.this, "Error code", Toast.LENGTH_SHORT).show();
                 }
-            });
+            }
+
+            @Override
+            public void onFailure(Call<EnterCodeResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     private void init() {
@@ -152,7 +156,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        presenter.saveCode(mFirstCode.getText().toString(), mSecondCode.getText().toString(), mThirdCode.getText().toString(), mFourthCode.getText().toString());
+            presenter.saveCode(mFirstCode.getText().toString(), mSecondCode.getText().toString(), mThirdCode.getText().toString(), mFourthCode.getText().toString());
 
             EditText text = (EditText) getCurrentFocus();
             if (text != null && text.length() > 0) {
@@ -161,8 +165,14 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
                     next.requestFocus();
                 }
             }
+            if (mFirstCode.getText().toString().isEmpty() && mSecondCode.getText().toString().isEmpty() && mThirdCode.getText().toString().isEmpty() && mFourthCode.getText().toString().isEmpty()) {
+
+            presenter.defaultSettings();
+        } else {
+                presenter.verifyCode();
 
 
+            }
         }
 
         @Override
@@ -177,6 +187,8 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         onBackPressed();
         return true;
     }
+
+
 
 
 }

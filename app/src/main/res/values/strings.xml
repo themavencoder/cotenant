@@ -23,8 +23,6 @@
     <string name="permissions_read_phone_state_title">Read Phone Number</string>
 
 
-
-
     <string-array name="Gender">
 
         <item>Male</item>

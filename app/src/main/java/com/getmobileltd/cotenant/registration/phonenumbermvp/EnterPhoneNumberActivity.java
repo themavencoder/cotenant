@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.entercodemvp.EnterCodeActivity;
 import com.hbb20.CountryCodePicker;
@@ -30,6 +31,7 @@ public class EnterPhoneNumberActivity extends AppCompatActivity implements Enter
     private EnterPhoneNumberContract.Presenter presenter;
     private Button mButton;
     private static final String DEFAULT_CODE = "+234";
+    private AppInstance app;
 
 
 

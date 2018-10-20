@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.chooselivemvp.ChooseLiveActivity;
 
@@ -19,6 +20,7 @@ public class ChooseDisabilityActivity extends AppCompatActivity implements Choos
     private Button mButton;
     private RadioGroup mRadioGroup1, mRadioGroup2;
     private RadioButton mRadioButton1, mRadioButton2;
+    private AppInstance app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,9 @@ public class ChooseDisabilityActivity extends AppCompatActivity implements Choos
             public void onClick(View view) {
                 mRadioButton1 = findViewById(mRadioGroup1.getCheckedRadioButtonId());
                 mRadioButton2 = findViewById(mRadioGroup2.getCheckedRadioButtonId());
+                app.setDisabled(mRadioButton1.getText().toString());
+                app.setCo_disabled(mRadioButton2.getText().toString());
+
                 presenter.saveDisabilityChoice(mRadioButton1.getText().toString());
                 presenter.saveRoomateDisability(mRadioButton2.getText().toString());
                 Toast.makeText(ChooseDisabilityActivity.this, mRadioButton1.getText().toString(), Toast.LENGTH_SHORT).show();
@@ -57,6 +62,7 @@ public class ChooseDisabilityActivity extends AppCompatActivity implements Choos
         mRadioGroup2 = findViewById(R.id.roomatedisability);
         mRadioGroup1.setOnCheckedChangeListener(this);
         mRadioGroup2.setOnCheckedChangeListener(this);
+        app = AppInstance.getInstance();
     }
 
     @Override

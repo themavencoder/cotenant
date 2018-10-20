@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.religionchoicemvp.ReligionChoiceActivity;
 
@@ -17,6 +19,7 @@ public class ComfortableGenderActivity extends AppCompatActivity implements Comf
     private Spinner spinner;
     private Button mButton;
     private ComfortableGenderContract.Presenter presenter;
+    private AppInstance app;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,9 +35,13 @@ public class ComfortableGenderActivity extends AppCompatActivity implements Comf
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(genderAdapter);
 
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String co_gender = spinner.getSelectedItem().toString();
+                Toast.makeText(ComfortableGenderActivity.this, co_gender, Toast.LENGTH_SHORT).show();
+              app.setCo_gender(co_gender);
                 presenter.loadNextScreen();
 
             }
@@ -44,6 +51,8 @@ public class ComfortableGenderActivity extends AppCompatActivity implements Comf
     private void init() {
         spinner = findViewById(R.id.spinnerComfortable);
         mButton = findViewById(R.id.btn_comfortable_gender);
+        app = AppInstance.getInstance();
+
     }
 
     @Override

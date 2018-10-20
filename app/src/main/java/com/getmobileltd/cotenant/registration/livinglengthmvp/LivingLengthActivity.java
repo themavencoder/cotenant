@@ -10,13 +10,16 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.choosemonthlypaymentmvp.ChooseMonthlyPayment;
 
 public class LivingLengthActivity extends AppCompatActivity implements LivingLengthContractor.View {
-    Spinner spinner;
-    Button mButton;
+    private Spinner spinner;
+    private Button mButton;
+    private AppInstance app;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +38,12 @@ public class LivingLengthActivity extends AppCompatActivity implements LivingLen
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String a  = spinner.getSelectedItem().toString();
+              char aa = a.charAt(0);
+              String result = aa + "";
+                Toast.makeText(LivingLengthActivity.this, a, Toast.LENGTH_SHORT).show();
+              Toast.makeText(LivingLengthActivity.this, result, Toast.LENGTH_SHORT).show();
+              app.setDuration(result);
                 setContentView(R.layout.wrap_it_up);
                 LinearLayout wrapitup = findViewById(R.id.wrapitup);
                 wrapitup.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +59,8 @@ public class LivingLengthActivity extends AppCompatActivity implements LivingLen
 
 
     private void init() {
+        app = AppInstance.getInstance();
+
         spinner = findViewById(R.id.billingSpinner);
     }
 

@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.choosedisabilitymvp.ChooseDisabilityActivity;
 
@@ -20,6 +21,7 @@ public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmok
     private RadioGroup mRadioGroupMe, mRadioGroupYou;
     private RadioButton radiobtn1, radiobtn2;
     private Button mButton;
+    private AppInstance app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,10 @@ public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmok
                 radiobtn2 = findViewById(mRadioGroupYou.getCheckedRadioButtonId());
                 String one = radiobtn1.getText().toString();
                 String two = radiobtn2.getText().toString();
-                Toast.makeText(getApplicationContext(), one, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), two, Toast.LENGTH_SHORT).show();
+                app.setSmoke(one);
+                app.setCo_smoke(two);
+               /* Toast.makeText(getApplicationContext(), one, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), two, Toast.LENGTH_SHORT).show();*/
                 presenter.saveSmokeChoice(radiobtn1.getText().toString());
                 presenter.saveRoomateSmoke(radiobtn2.getText().toString());
                 presenter.loadNextScreen();
@@ -67,6 +71,7 @@ public class ChooseSmokeActivity extends AppCompatActivity implements ChooseSmok
         mRadioGroupMe.setOnCheckedChangeListener(this);
         mRadioGroupYou = findViewById(R.id.radiogroup_choosesmoke_two);
         mRadioGroupYou.setOnCheckedChangeListener(this);
+        app = AppInstance.getInstance();
         /*mRadioButtonOne = findViewById(R.id.radiobutton_choosesmoke_one_yes);
         mRadioButtonTwo = findViewById(R.id.radiobutton_choosesmoke_one_no);
         mRadioButtonThree = findViewById(R.id.radiobutton_choosesmoke_two_yes);

@@ -19,6 +19,7 @@ public class ChooseWorkActivity extends AppCompatActivity implements ChooseWorkC
     private Button mButton;
     private EditText mEditText;
     private ChooseWorkContractor.Presenter presenter;
+    private AppInstance app;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +36,11 @@ public class ChooseWorkActivity extends AppCompatActivity implements ChooseWorkC
        mButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               Toast.makeText(ChooseWorkActivity.this, "" + mEditText.getText().toString(), Toast.LENGTH_SHORT).show();
                presenter.save(mEditText.getText().toString());
+               app.setWork(mEditText.getText().toString());
                Toast.makeText(ChooseWorkActivity.this, mEditText.getText().toString(), Toast.LENGTH_SHORT).show();
                presenter.loadNextScreen();
-               AppInstance app = AppInstance.getInstance();
 
 
 
@@ -49,6 +51,7 @@ public class ChooseWorkActivity extends AppCompatActivity implements ChooseWorkC
     }
 
     private void init() {
+        app = AppInstance.getInstance();
         mButton = findViewById(R.id.btn_choose_work);
         mEditText =findViewById(R.id.et_placeofWork);
         mEditText.addTextChangedListener(watcher);
