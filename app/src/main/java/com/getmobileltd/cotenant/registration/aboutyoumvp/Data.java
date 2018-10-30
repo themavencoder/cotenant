@@ -37,7 +37,16 @@ public class Data {
     @SerializedName("phone_number")
     @Expose
     private String phone_number;
+    @SerializedName("id")
+    private Integer id;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public void setEmail(String email) {
         this.email = email;

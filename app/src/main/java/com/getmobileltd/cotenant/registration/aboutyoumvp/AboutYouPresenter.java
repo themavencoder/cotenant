@@ -2,7 +2,7 @@ package com.getmobileltd.cotenant.registration.aboutyoumvp;
 
 import com.getmobileltd.cotenant.R;
 
-public class AboutYouPresenter implements AboutYouContract.Presenter{
+public class AboutYouPresenter implements AboutYouContract.Presenter {
     private AboutYouContract.View view;
     private Data model;
 
@@ -31,13 +31,12 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
 
 
         if (firstName.isEmpty() || lastName.isEmpty() || gender.isEmpty() || emailAddress.isEmpty() || phoneNumber.isEmpty()) {
-                defaultSettings();
-        return;
+            defaultSettings();
+            return;
         }
 
-            view.enableButtonColor(R.drawable.btn_red);
-            view.enableButtonClick(true);
-
+        view.enableButtonColor(R.drawable.btn_red);
+        view.enableButtonClick(true);
 
 
     }
@@ -70,7 +69,7 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
 
     @Override
     public String firstName() {
-       return model.getFirst_name();
+        return model.getFirst_name();
     }
 
 
@@ -94,5 +93,18 @@ public class AboutYouPresenter implements AboutYouContract.Presenter{
         return model.getGender();
     }
 
+    @Override
+    public String removeSpace(String s) {
 
+        String withoutspaces = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ')
+                withoutspaces += s.charAt(i);
+
+        }
+        return withoutspaces;
+
+
+    }
 }
+

@@ -4,9 +4,6 @@ import android.util.Log;
 
 import com.getmobileltd.cotenant.R;
 
-import java.util.Set;
-import java.util.TreeSet;
-
 public class EnterCodePresenter implements EnterCodeContract.Presenter {
     private EnterCodeContract.View view;
     private EnterCodeModel model;
@@ -19,10 +16,10 @@ public class EnterCodePresenter implements EnterCodeContract.Presenter {
 
     @Override
     public void verifyCode() {
-        if (appendStrings(model.getFirstcode(),model.getSecondcode(),model.getThirdcode(),model.getFourthcode()).length() == 4) {
-                view.enableButtonColor(R.drawable.btn_red);
-                view.enableButtonClick(true);
-                view.enablePositiveChecked();
+        if (appendStrings(model.getFirstcode(), model.getSecondcode(), model.getThirdcode(), model.getFourthcode()).length() == 4) {
+            view.enableButtonColor(R.drawable.btn_red);
+            view.enableButtonClick(true);
+            view.enablePositiveChecked();
 
 
         } else {
@@ -56,12 +53,14 @@ public class EnterCodePresenter implements EnterCodeContract.Presenter {
         model.setThirdcode(third);
         model.setFourthcode(fourth);
 
-        String a = appendStrings(model.getFirstcode(),model.getSecondcode(),model.getThirdcode(),model.getFourthcode());
+        String a = appendStrings(model.getFirstcode(), model.getSecondcode(), model.getThirdcode(), model.getFourthcode());
+        if (!a.isEmpty()) {
+            code = Integer.parseInt(a);
 
-    code = Integer.parseInt(a);
-    model.setCode(String.valueOf(code));
+        }
+        model.setCode(String.valueOf(code));
 
-        Log.d("Codesaved","Your code has been saved" + a);
+        Log.d("Codesaved", "Your code has been saved" + a);
 
 
     }

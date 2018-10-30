@@ -3,30 +3,42 @@ package com.getmobileltd.cotenant.registration.choosemonthlypaymentmvp;
 import com.google.gson.annotations.SerializedName;
 
 public class TenantResponse {
-    @SerializedName("success")
-    private Boolean success;
-
     @SerializedName("status")
-    private Integer status;
+    private String status;
+
+    @SerializedName("code")
+    private Integer code;
 
     @SerializedName("data")
     private TenantBody data;
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @SerializedName("message")
+
+   private String message;
 
     public TenantBody getData() {
         return data;

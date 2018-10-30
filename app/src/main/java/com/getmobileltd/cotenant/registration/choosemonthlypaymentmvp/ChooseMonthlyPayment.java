@@ -69,7 +69,7 @@ private ApiService mApiService;
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              tenantBody = new TenantBody(22,app.getCo_gender(),app.getReligion(),app.getCo_religion(),app.getSmoke(),app.getCo_smoke(),app.getDisabled(),app.getCo_disabled(),app.getLocation_1(),app.getLocation_2(),app.getWork(),app.getDuration());
+              tenantBody = new TenantBody(app.getUser_id(),app.getCo_gender(),app.getReligion(),app.getCo_religion(),app.getSmoke(),app.getCo_smoke(),app.getDisabled(),app.getCo_disabled(),app.getLocation_1(),app.getLocation_2(),app.getWork(),app.getDuration());
               createTenants(tenantBody);
 
                 presenter.loadNextScreen();
@@ -104,11 +104,11 @@ private ApiService mApiService;
         call.enqueue(new Callback<TenantResponse>() {
             @Override
             public void onResponse(Call<TenantResponse> call, Response<TenantResponse> response) {
-                if (response.body().getSuccess()) {
+                if (response.body().getCode() == 201) {
                     Toast.makeText(ChooseMonthlyPayment.this, "Value inserted", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(ChooseMonthlyPayment.this, "Error code" + response.body().getStatus(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChooseMonthlyPayment.this, "Error code" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 

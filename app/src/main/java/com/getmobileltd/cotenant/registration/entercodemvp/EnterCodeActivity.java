@@ -67,12 +67,12 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         call.enqueue(new Callback<EnterCodeResponse>() {
             @Override
             public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
-                if (response.body().getStatus().equals("200")) {
-                    Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getSuccess(), Toast.LENGTH_SHORT).show();
+                if (response.body().getCode() == 200) {
+                    Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EnterCodeActivity.this, ComfortableGenderActivity.class));
                 }
                  else {
-                    Toast.makeText(EnterCodeActivity.this, "Error code", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EnterCodeActivity.this, ""+response.body().getMessage() , Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -78,14 +78,16 @@ public class AppPinActivity extends AppCompatActivity implements AppPinContract.
 
 
     private void insertUser(Data data) {
-        ApiService mApiService = Client.getClient().create(ApiService.class);
+            ApiService mApiService = Client.getClient().create(ApiService.class);
         Call<CreateUserResponse> call = mApiService.createUser(data);
 
         call.enqueue(new Callback<CreateUserResponse>() {
             @Override
             public void onResponse(Call<CreateUserResponse> call, Response<CreateUserResponse> response) {
-                if (response.body().getCode() == 201) {
+                if (response.body().getStatus().equals("success")) {
                     Toast.makeText(AppPinActivity.this, "Successful" + response.body().getCode(), Toast.LENGTH_SHORT).show();
+                    int id = response.body().getData().getId();
+                    app.setUser_id(id);
                     presenter.loadNextScreen();
 
                 }

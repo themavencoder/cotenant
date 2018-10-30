@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.body().getCode() == 200) {
-                    Toast.makeText(LoginActivity.this, "Login successful but yet to verify account", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                 } else if (response.body().getCode() == 404) {
                     Toast.makeText(LoginActivity.this, "Incorrect login details", Toast.LENGTH_SHORT).show();
                 } else {

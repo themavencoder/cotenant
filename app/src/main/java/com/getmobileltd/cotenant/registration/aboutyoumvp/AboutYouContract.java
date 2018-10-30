@@ -24,6 +24,7 @@ public interface AboutYouContract {
         String emailAddress();
         String phoneNumber();
         String gender();
+        String removeSpace(String s );
 
     }
 }

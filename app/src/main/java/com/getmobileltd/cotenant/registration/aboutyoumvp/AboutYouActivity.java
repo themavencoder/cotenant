@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,8 +22,11 @@ import android.widget.Toast;
 
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.registration.aboutyoumvp.utilities.EmailValidator;
 import com.getmobileltd.cotenant.registration.apppinmvp.AppPinActivity;
 import com.getmobileltd.cotenant.registration.comfortablegendermvp.ComfortableGenderActivity;
+
+import java.util.Objects;
 
 public class AboutYouActivity extends AppCompatActivity implements AboutYouContract.View {
     private AppCompatSpinner spinner;
@@ -46,10 +50,9 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text = spinner.getSelectedItem().toString();
-
 
                 presenter.loadNextScreen();
+
 
                 AppInstance app = AppInstance.getInstance();
                 app.setFirstName(presenter.firstName());
@@ -113,16 +116,21 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
     @Override
     public void showError(String error) {
-        t1.setError(error);
+        mFirstName.setError(error);
+
 
     }
 
     @Override
     public void showError2(String error) {
-        t2.setError(error);
+        mLastName.setError(error);
     }
 
-    TextWatcher watch = new TextWatcher() {
+
+
+/*
+   */
+ TextWatcher watch = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -130,28 +138,54 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            String firstname = mFirstName.getText().toString().trim();
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            String firstname = mFirstName.getText().toString();
             String lastName = mLastName.getText().toString().trim();
             String emailAddress = mEmailAddress.getText().toString().trim();
             String phoneNumber = mPhoneNumber.getText().toString().trim();
-            if (firstname.length() < 3) {
-                presenter.displayError();
-                presenter.defaultSettings();
-                return;
 
-            }
-            if (lastName.length() < 3) {
-                presenter.displayError2();
-                presenter.defaultSettings();
-                return;
-            }
-            if (emailAddress.isEmpty()) {
-                presenter.defaultSettings();
-                return;
-            }
-            if (phoneNumber.isEmpty()) {
+
+
+            if (firstname.length() < 4) {
+
+
+                if (firstname.length() == 3) {
+                    presenter.displayError();
+                    presenter.defaultSettings();
+                    return;
+                }
+
                 presenter.defaultSettings();
 
+
+            }
+            if (mLastName.getText().toString().length() < 4) {
+                if (mLastName.getText().toString().length() == 3) {
+                    presenter.displayError2();
+                    presenter.defaultSettings();
+                    return;
+                }
+
+                presenter.defaultSettings();
+                return;
+            }
+            if (!EmailValidator.isValidEmail(emailAddress)) {
+                if (emailAddress.length() > 10) {
+                    mEmailAddress.setError("Enter a valid email address");
+                    presenter.defaultSettings();
+                    return;
+                }
+
+                presenter.defaultSettings();
+                return;
+            }
+
+            if (phoneNumber.length() < 11) {
+                presenter.defaultSettings();
                 return;
 
             }
@@ -159,12 +193,10 @@ public class AboutYouActivity extends AppCompatActivity implements AboutYouContr
             presenter.verifyEntries();
 
 
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
 
         }
     };
+
+
 }
 

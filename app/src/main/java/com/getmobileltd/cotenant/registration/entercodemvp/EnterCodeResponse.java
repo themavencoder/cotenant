@@ -4,11 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class EnterCodeResponse {
 
-    @SerializedName("success")
-    private Boolean success;
-
     @SerializedName("status")
-    private String status;
+ private String status;
+
+@SerializedName("code")
+    private Integer code;
+
+@SerializedName("message")
+    private String message;
 
     public String getStatus() {
         return status;
@@ -18,11 +21,20 @@ public class EnterCodeResponse {
         this.status = status;
     }
 
-    public Boolean getSuccess() {
-        return success;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setSuccess(Boolean success) {
-        this.success = success;
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
+

@@ -78,6 +78,8 @@
                 android:layout_width="match_parent"
                 android:singleLine="true"
                 android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 android:hint="First Name"
 
                 />
@@ -95,6 +97,9 @@
                 android:id="@+id/lastname_reg_abou_you"
                 android:layout_width="match_parent"
                 android:singleLine="true"
+                android:inputType="textCapWords"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:hint="Last Name"
@@ -132,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:inputType="phone"
+                android:digits="1234567890"
                 android:layout_marginTop="24dp"
                 android:hint="Phone Number"
                 />
