@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/grey"
 
     android:layout_height="match_parent">
 
@@ -46,15 +47,26 @@
     </LinearLayout>
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="16dp"
+        android:text="Job Details"
+        android:textColor="@color/black_shade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
+        android:textColor="@color/black_shade"
         android:textStyle="bold"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:text="What's your salary range?"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         />
 
     <Spinner

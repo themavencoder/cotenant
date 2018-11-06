@@ -3,11 +3,11 @@ package com.getmobileltd.cotenant.registration.apppinmvp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
-import com.getmobileltd.cotenant.TestActivity;
 import com.getmobileltd.cotenant.registration.aboutyoumvp.Data;
 import com.getmobileltd.cotenant.registration.entercodemvp.EnterCodeActivity;
+import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +35,9 @@ public class AppPinActivity extends AppCompatActivity implements AppPinContract.
     private ApiService mApiService;
     private Data data;
     private AppInstance app;
+    private DilatingDotsProgressBar mDilatingDotsProgressBar;
+    private boolean statusLogin;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,73 +51,87 @@ public class AppPinActivity extends AppCompatActivity implements AppPinContract.
         mApiService = ApiUtils.getApiService();
 
         presenter = new AppPinPresenter(this);
-       presenter.defaultSettings();
+        presenter.defaultSettings();
         app = AppInstance.getInstance();
 
         firstName = app.getFirstName();
         lastName = app.getLastName();
         phoneNumber = app.getPhone_number();
-        emailAddrsss =app.getEmailAddress();
+        emailAddrsss = app.getEmailAddress();
         gender = app.getGender();
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                statusLogin = true;
+                mDilatingDotsProgressBar.showNow();
+                presenter.defaultSettings();
 
-                data = new Data(emailAddrsss,presenter.appPassword(),firstName,lastName,gender,phoneNumber);
-              //  Toast.makeText(getApplicationContext(), emailAddrsss + presenter.appPassword() + firstName + lastName + gender+  phoneNumber, Toast.LENGTH_SHORT).show();
+                data = new Data(emailAddrsss, presenter.appPassword(), firstName, lastName, gender, phoneNumber);
+                //  Toast.makeText(getApplicationContext(), emailAddrsss + presenter.appPassword() + firstName + lastName + gender+  phoneNumber, Toast.LENGTH_SHORT).show();
                 insertUser(data);
-               // Toast.makeText(AppPinActivity.this, presenter.appPassword(), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(AppPinActivity.this, presenter.appPassword(), Toast.LENGTH_SHORT).show();
 
             }
         });
-
-
-
-
 
 
     }
 
 
     private void insertUser(Data data) {
-            ApiService mApiService = Client.getClient().create(ApiService.class);
+        ApiService mApiService = Client.getClient().create(ApiService.class);
         Call<CreateUserResponse> call = mApiService.createUser(data);
 
         call.enqueue(new Callback<CreateUserResponse>() {
             @Override
             public void onResponse(Call<CreateUserResponse> call, Response<CreateUserResponse> response) {
+
+
                 if (response.body().getStatus().equals("success")) {
-                    Toast.makeText(AppPinActivity.this, "Successful" + response.body().getCode(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AppPinActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     int id = response.body().getData().getId();
                     app.setUser_id(id);
+                    mDilatingDotsProgressBar.hideNow();
+                    presenter.verifyEntries();
                     presenter.loadNextScreen();
+                    return;
+                }
 
-                }
-                 else {
-                    Toast.makeText(AppPinActivity.this, "Error with code " + response.body().getCode(), Toast.LENGTH_SHORT).show();
-                }
+                if (response.body().getCode() == 409) {
+
+                    Toast.makeText(AppPinActivity.this, "Email or Phone number exist", Toast.LENGTH_SHORT).show();
+
+                      }
+
+
+
             }
 
             @Override
             public void onFailure(Call<CreateUserResponse> call, Throwable t) {
                 Toast.makeText(AppPinActivity.this, "" +
                         "Failure with " + t.getCause(), Toast.LENGTH_SHORT).show();
+                mDilatingDotsProgressBar.hideNow();
+                presenter.verifyEntries();
             }
         });
     }
 
     private void init() {
         mButton = findViewById(R.id.btn_choose_pin);
-       enterPassword = findViewById(R.id.enter_password);
-       confirmPassword = findViewById(R.id.confirm_password);
-       enterPassword.addTextChangedListener(watcher);
-       confirmPassword.addTextChangedListener(watcher);
+        enterPassword = findViewById(R.id.enter_password);
+        confirmPassword = findViewById(R.id.confirm_password);
+        enterPassword.addTextChangedListener(watcher);
+        confirmPassword.addTextChangedListener(watcher);
         positive1 = findViewById(R.id.positivechecked1);
         positive2 = findViewById(R.id.positivechecked2);
+        mDilatingDotsProgressBar = findViewById(R.id.progress);
 
 
     }
+
+
 
     @Override
     public void showButtonClick(boolean b) {
@@ -182,6 +199,7 @@ public class AppPinActivity extends AppCompatActivity implements AppPinContract.
 
         }
     };
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

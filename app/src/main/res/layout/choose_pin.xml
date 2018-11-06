@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-
+android:background="@color/grey"
 
     android:layout_height="match_parent">
 
@@ -53,20 +55,12 @@
         android:textStyle="bold"
         android:layout_marginTop="26dp"
         android:layout_marginBottom="4dp"
-        android:text="Setup a security for your app"
+        android:text="Let's setup your security"
         android:textSize="20sp"
         />
-    <TextView
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="14dp"
-        android:text="Please enter a secure password"
-        android:textSize="12sp"
-        />
-    <TextView
+
+   <!-- <TextView
+        android:layout_marginTop="18dp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
@@ -76,28 +70,38 @@
         android:layout_marginBottom="4dp"
         android:text="New Password"
         android:textSize="16sp"
-        />
+        />-->
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
 
         >
 
-
-        <EditText
-            android:imeOptions="actionNext"
-            android:id="@+id/enter_password"
-            android:layout_width="190dp"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
+            app:counterEnabled="true"
+            app:passwordToggleEnabled="true">
 
 
-            android:inputType="textPassword"
-            android:singleLine="true" />
+
+
+            <EditText
+                android:imeOptions="actionNext"
+                android:id="@+id/enter_password"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </android.support.design.widget.TextInputLayout>
+
 
         <ImageView
             android:id="@+id/positivechecked1"
@@ -110,39 +114,39 @@
 
 
     </LinearLayout>
-    <TextView
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#A5A5A5"
-        android:textStyle="bold"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="4dp"
-        android:text="Confirm Password"
-        android:textSize="16sp"
-        />
+
     <LinearLayout
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
 
         >
 
-
-
-        <EditText
-            android:id="@+id/confirm_password"
-            android:layout_width="190dp"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:imeOptions="actionNext"
+            app:counterEnabled="true"
+            app:passwordToggleEnabled="true">
 
-            android:inputType="textPassword"
-            android:singleLine="true" />
+            <EditText
+                android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:imeOptions="actionDone"
 
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        
         <ImageView
             android:id="@+id/positivechecked2"
             android:visibility="invisible"
@@ -166,5 +170,29 @@
         android:text="Finish"
         android:textAllCaps="false"
         android:textColor="@color/white" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="32dp"
+            android:color="@color/regButtonColor"
+
+            android:radius="5dp"
+            app:dd_animationDuration="500"
+            app:dd_horizontalSpacing="4dp"
+            app:dd_numDots="4"
+            app:dd_scaleMultiplier="1.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
 
 </LinearLayout>

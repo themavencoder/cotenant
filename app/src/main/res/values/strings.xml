@@ -9,12 +9,12 @@
     <string name="christian">Christian</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="greatjob">Great job!</string>
+    <string name="greatjob">Great job! You are 50% done</string>
     <string name="done">Done</string>
 
     <string name="Open">Open</string>
     <string name="Close">Close</string>
-    <string name="four_digit_code">Enter the 4 digit code sent to your email address</string>
+    <string name="four_digit_code">Your code has been sent to your email. Please check your email and enter the 4-digit code sent to you.</string>
     <string name="gender">Gender</string>
     <string name="permissions_read_phone_state_message">
         Grant permission to read your phone number from your device to pre-fill.
@@ -125,4 +125,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="email_confirm">Email Confirmation</string>
 </resources>

@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
 
     <LinearLayout
@@ -13,8 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,59 +28,93 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="/"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="11"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
 
     </LinearLayout>
 
-
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="16dp"
+        android:text="Gender Preference"
+        android:textColor="@color/black_shade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="40dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
         android:text="What gender are you comfortable with as a roomate?"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColor="@color/black_shade"
+        android:textSize="18sp"
 
 
         />
 
-    <Spinner
-        android:id="@+id/spinnerComfortable"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+    <RadioGroup
 
-        android:layout_width="match_parent"
+        android:id="@+id/roomategender"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+
+        android:layout_marginRight="16dp">
+
+        <RadioButton
+            android:id="@+id/rooomate_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Male"
+            android:textColor="@color/black_shade"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/roomate_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Female"
+            android:textColor="@color/black_shade"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/roomate_both"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Both"
+            android:textColor="@color/black_shade"
+            android:textSize="16sp" />
+
+    </RadioGroup>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:id="@+id/btn_comfortable_gender"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/btn_red"
         android:text="@string/next"
         android:textAllCaps="false"
-        android:layout_marginTop="24dp"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 </LinearLayout>

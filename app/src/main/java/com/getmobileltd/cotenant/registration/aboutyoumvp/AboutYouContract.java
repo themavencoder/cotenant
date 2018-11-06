@@ -1,5 +1,7 @@
 package com.getmobileltd.cotenant.registration.aboutyoumvp;
 
+import android.text.Spanned;
+
 public interface AboutYouContract {
 
     interface View {

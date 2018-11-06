@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_marginLeft="16dp"
-    android:orientation="vertical"
-    android:id="@+id/tapanywheretoContinue"
-    android:layout_marginTop="56dp"
-    android:layout_marginRight="64dp"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:textColor="@android:color/black"
-        android:layout_height="wrap_content"
-        android:text="@string/thankyou"
-        android:textSize="24sp"
-        />
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="24dp"
-        android:text="We have a few more questions to ask you"
-        android:textSize="20sp"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical"
+        android:id="@+id/tapanywheretoContinue"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="64dp"
+        android:layout_height="match_parent">
 
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_marginTop="80dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Tap anywhere to continue"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:text="@string/thankyou"
+            android:textSize="24sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="24dp"
+            android:text="We have a few more questions to ask about your preferences"
+            android:textSize="20sp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="80dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Tap anywhere to continue"
+            />
+
+
+</LinearLayout>
 
 </LinearLayout>

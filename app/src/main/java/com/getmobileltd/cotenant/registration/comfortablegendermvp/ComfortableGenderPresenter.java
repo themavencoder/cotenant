@@ -1,5 +1,7 @@
 package com.getmobileltd.cotenant.registration.comfortablegendermvp;
 
+import com.getmobileltd.cotenant.R;
+
 public class ComfortableGenderPresenter implements ComfortableGenderContract.Presenter {
     private ComfortableGenderContract.View view;
     private ComfortableGenderModel model;
@@ -18,5 +20,18 @@ public class ComfortableGenderPresenter implements ComfortableGenderContract.Pre
     @Override
     public void savePreferredSex(String sex) {
         model.setPreferredRoommateSex(sex);
+    }
+
+    @Override
+    public void defaultSettings() {
+        view.setButtonColor(R.drawable.btn_ash);
+        view.showButtonClick(false);
+    }
+
+    @Override
+    public void verifyEntries() {
+        view.setButtonColor(R.drawable.btn_red);
+        view.showButtonClick(true);
+
     }
 }

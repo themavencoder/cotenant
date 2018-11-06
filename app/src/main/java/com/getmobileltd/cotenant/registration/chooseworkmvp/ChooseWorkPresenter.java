@@ -19,7 +19,7 @@ public class ChooseWorkPresenter implements ChooseWorkContractor.Presenter {
 
     @Override
     public void displayError() {
-        view.showError("Field cannot be less than 4 characters");
+        view.showError("Field cannot be less than 8 characters");
 
     }
 

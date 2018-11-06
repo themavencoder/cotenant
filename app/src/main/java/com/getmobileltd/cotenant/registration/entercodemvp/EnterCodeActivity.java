@@ -19,6 +19,7 @@ import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.aboutyoumvp.AboutYouActivity;
 import com.getmobileltd.cotenant.registration.apppinmvp.Client;
 import com.getmobileltd.cotenant.registration.comfortablegendermvp.ComfortableGenderActivity;
+import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +33,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
     private AppInstance app;
     private EnterCodeModel model;
     private ApiService apiService;
+    private DilatingDotsProgressBar mDilatingDotsProgressBar;
 
 
     @Override
@@ -49,6 +51,8 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         mEnterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                presenter.defaultSettings();
+                mDilatingDotsProgressBar.showNow();
 
                 app = AppInstance.getInstance();
             String savedcode = presenter.showSavedCode();
@@ -68,16 +72,22 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
             @Override
             public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
                 if (response.body().getCode() == 200) {
+                    mDilatingDotsProgressBar.hideNow();
                     Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EnterCodeActivity.this, ComfortableGenderActivity.class));
                 }
                  else {
+                    mDilatingDotsProgressBar.hideNow();
+                    presenter.verifyCode();
                     Toast.makeText(EnterCodeActivity.this, ""+response.body().getMessage() , Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<EnterCodeResponse> call, Throwable t) {
+                Toast.makeText(EnterCodeActivity.this, "Server Error", Toast.LENGTH_SHORT).show();
+                mDilatingDotsProgressBar.hideNow();
+                presenter.verifyCode();
 
             }
         });
@@ -96,6 +106,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         mFourthCode.addTextChangedListener(watch);
         Client client = new Client();
         apiService = client.getClient().create(ApiService.class);
+        mDilatingDotsProgressBar = findViewById(R.id.progress);
 
     }
 
