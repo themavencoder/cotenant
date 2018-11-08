@@ -1,4 +1,4 @@
-package com.getmobileltd.cotenant.availablespacechecked;
+package com.getmobileltd.cotenant.update_available_space_details;
 
 public class DataSource {
 

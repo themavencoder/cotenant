@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="16dp"
+    >
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:id="@+id/apartmentImage"
+        android:layout_height="wrap_content"
+        android:src="@drawable/defaultimage"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+
+            android:textColor="#777777"
+            android:layout_gravity="center"
+            android:id="@+id/bedroomNumber"
+            android:text="2 BEDROOMS"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/dot"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textColor="#777777"
+            android:layout_gravity="center"
+            android:id="@+id/stateLocation"
+            android:text="Yaba"
+            />
+
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+
+        android:id="@+id/addressLocation"
+        android:layout_marginTop="10dp"
+        android:text="42 Montgomery street, Yaba"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NGN 50 000"
+            android:id="@+id/rent"
+            android:textColor="#A9CF46"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/ PER MONTH"
+            android:textSize="14sp"
+            />
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:textColor="#A9CF46"
+        android:background="@drawable/btn_white"
+        android:text="Details"
+        android:paddingRight="28dp"
+        android:paddingLeft="24dp"
+        android:drawableRight="@drawable/front_arrow"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

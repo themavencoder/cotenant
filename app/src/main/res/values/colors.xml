@@ -12,4 +12,7 @@
     <color name="active_dots">#FB1949</color>
     <color name="inactive_dots">#FFFFFF</color>
     <color name="black_shade">#334152</color>
+    <color name="linear_layout_default">#FCEDBE</color>
+    <color name="default_text_color">#3E3221</color>
+    <color name="default_bottom_text">#6E6446</color>
 </resources>

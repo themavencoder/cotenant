@@ -87,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     android:hint="First Name"
+
                     android:inputType="textCapWords"
                     android:singleLine="true"
 
@@ -131,6 +132,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:hint="Email Address"
+
+
                     android:singleLine="true"
                     android:textColor="@color/black_shade" />
 

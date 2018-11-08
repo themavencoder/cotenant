@@ -1,4 +1,4 @@
-package com.getmobileltd.cotenant.availablespacechecked;
+package com.getmobileltd.cotenant.update_available_space_details;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,20 +9,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.getmobileltd.cotenant.R;
-import com.getmobileltd.cotenant.update_available_space_details.DataSource;
+import com.getmobileltd.cotenant.registration.aboutyoumvp.Data;
 
 import java.util.List;
 
-public class PagerSpaceAdapter extends PagerAdapter {
+public class DetailsPagerAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater inflater;
     private List<DataSource> dataSourceList;
 
 
-    public PagerSpaceAdapter(Context context, List<DataSource> dataSourceList) {
-        this.dataSourceList = dataSourceList;
+    public DetailsPagerAdapter(Context context, List<DataSource> dataSourceList) {
         this.context = context;
-        inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.dataSourceList = dataSourceList;
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
     }
 
     @Override
@@ -42,13 +43,13 @@ public class PagerSpaceAdapter extends PagerAdapter {
         ImageView imageView = view.findViewById(R.id.imageViewTop);
         imageView.setImageResource(dataSourceList.get(position).getImage());
         container.addView(imageView);
-
         return view;
+
     }
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        View view = (View) object;
+        View view  = (View) object;
         container.removeView(view);
     }
 }

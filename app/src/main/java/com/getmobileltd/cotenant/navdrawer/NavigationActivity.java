@@ -26,7 +26,6 @@ public class NavigationActivity extends AppCompatActivity {
         d.addDrawerListener(t);
         t.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         nv = findViewById(R.id.nv);
             nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -38,14 +37,10 @@ public class NavigationActivity extends AppCompatActivity {
                             Toast.makeText(NavigationActivity.this, "Sermons",Toast.LENGTH_SHORT).show();
                         case R.id.available_space:
                             Toast.makeText(NavigationActivity.this, "Sermons",Toast.LENGTH_SHORT).show();
-
                         case R.id.interest:
                             Toast.makeText(NavigationActivity.this, "Sermons",Toast.LENGTH_SHORT).show();
-
-
                         case R.id.history:
                             Toast.makeText(NavigationActivity.this, "Sermons",Toast.LENGTH_SHORT).show();
-
                         case R.id.payment:
                             Toast.makeText(NavigationActivity.this, "Sermons",Toast.LENGTH_SHORT).show();
 

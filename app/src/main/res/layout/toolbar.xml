@@ -8,6 +8,8 @@
     style="@style/Headerbar"
     app:theme="@style/AppTheme.ToolbarStyle"
     app:popupTheme="@style/AppTheme.PopupOverlay"
-    android:background="#e5e5e5">
+    app:layout_scrollFlags="scroll|enterAlways"
+
+    android:background="@color/white">
 
 </android.support.v7.widget.Toolbar>

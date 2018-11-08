@@ -51,7 +51,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:3.9.0"
 
     implementation 'com.github.justzak:dilatingdotsprogressbar:1.0.1'
-
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 
 

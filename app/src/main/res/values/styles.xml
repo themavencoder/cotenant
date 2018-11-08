@@ -11,31 +11,31 @@
     </style>
 
 
-
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@drawable/white</item>
-
-    </style>
-
-<style name="AppTheme.ToolbarStyle">
-
-    <item name="windowActionBar">false</item>
-    <item name="windowNoTitle">true</item>
-    <item name="android:textColorSecondary">@color/colorAccent</item>
-    <item name="android:fontFamily">@font/sanfrancisco</item>
-
-</style>
-
-    <style name="EditTextStyle" parent = "Theme.AppCompat.Light">
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/white</item>
 
+    </style>
 
 
+    <style name="AppTheme.ToolbarStyle">
 
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/sanfrancisco</item>
 
     </style>
+
+    <style name="EditTextStyle" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Headerbar">
@@ -43,6 +43,7 @@
         <item name="android:textColorSecondary">@color/colorAccent</item>
         <item name="android:background">@color/white</item>
     </style>
+
     <style name="expandedappbar" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">34sp</item>
         <item name="android:textColor">@color/white</item>
@@ -67,4 +68,12 @@
 
     <color name="indigo">#E040FB</color>
     <color name="pink">#EC407A</color>
+
+
+    <style name="TextHeaderStyle" >
+        <item name = "android:textColor">@color/default_text_color</item>
+        <item name = "android:textSize">18sp</item>
+        <item name = "android:textStyle">bold</item>
+
+    </style>
 </resources>

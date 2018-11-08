@@ -34,54 +34,47 @@
                 <data android:scheme="@string/ak_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".registration.phonenumbermvp.EnterPhoneNumberActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.entercodemvp.EnterCodeActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".registration.phonenumbermvp.EnterPhoneNumberActivity" />
-
-
         </activity>
         <activity
             android:name=".registration.aboutyoumvp.AboutYouActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.apppinmvp.AppPinActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".dashboard.DefaultDashboard"
+            android:label="Dashboard"
             android:theme="@style/AppTheme.NoActionBar" >
 
         </activity>
         <activity
-            android:name=".dashboard.DefaultDashboard"
-            android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".mergedashboard.MergedDashboard"
-            android:label="Dashboard" />
+            android:label="Dashboard" >
+
+
+        </activity>
         <activity
             android:name=".interest.InterestActivity"
             android:label="Interest" />
         <activity android:name=".history.HistoryActivity" />
         <activity android:name=".payment.SetUpCardActivity" />
-        <activity android:name=".navdrawer.NavigationActivity" />
-        <activity
-            android:name=".registration.comfortablegendermvp.ComfortableGenderActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".navdrawer.NavigationActivity" >
+
 
         </activity>
+        <activity
+            android:name=".registration.comfortablegendermvp.ComfortableGenderActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.religionchoicemvp.ReligionChoiceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -90,16 +83,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.choosedisabilitymvp.ChooseDisabilityActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.chooselivemvp.ChooseLiveActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".registration.chooseworkmvp.ChooseWorkActivity" />
         <activity android:name=".registration.salaryrangemvp.SalaryRangeActivity" />
         <activity android:name=".registration.choosemonthlypaymentmvp.ChooseMonthlyPayment" />
-        <activity android:name=".registration.livinglengthmvp.LivingLengthActivity"></activity>
+        <activity android:name=".registration.livinglengthmvp.LivingLengthActivity" />
         <activity android:name=".registration.lastregmvp.LastRegActivity" />
         <activity android:name=".payment.EmptyPayment" />
         <activity android:name=".profile.ProfileActivity" />
@@ -108,10 +99,21 @@
             android:label="@string/title_activity_settings" />
         <activity android:name=".TestActivity" />
         <activity android:name=".payment.savedpayments.SavedPayments" />
-        <activity android:name=".availablespacechecked.AvailableSpaceChecked">
+        <activity android:name=".availablespacechecked.AvailableSpaceChecked" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".update_dashboard.DashboardActivity">
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".update_available_space.AvailableSpaceActivity">
 
         </activity>
-        <activity android:name=".login.LoginActivity">
+        <activity android:name=".update_available_space_details.AvailableSpaceDetails">
 
 
         </activity>

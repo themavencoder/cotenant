@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.update_available_space_details.DataSource;
 
 import java.util.ArrayList;
 import java.util.List;
