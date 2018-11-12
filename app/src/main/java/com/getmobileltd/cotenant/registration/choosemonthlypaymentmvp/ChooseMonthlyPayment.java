@@ -10,8 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
-import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
+
+import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarFinalValueListener;
+import com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar;
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.registration.apppinmvp.AppPinActivity;
@@ -25,7 +27,7 @@ import retrofit2.Response;
 
 public class ChooseMonthlyPayment extends AppCompatActivity  implements ChooseMonthlyPaymentContractor.View{
 private Button mButton;
-private RangeBar rangeSeekBar;
+private BubbleThumbSeekbar rangeSeekBar;
 private ChooseMonthlyPaymentContractor.Presenter presenter;
 private AppInstance app;
 private TenantBody tenantBody;
@@ -41,24 +43,26 @@ private ApiService mApiService;
         setTitle("");
         init();
         final TextView min_Value = findViewById(R.id.textMin2);
-        final TextView max_Value = findViewById(R.id.textMax2);
+       final TextView max_Value = findViewById(R.id.textMax2);
         app = AppInstance.getInstance();
 
         presenter = new ChooseMonthlyPresenter(this);
-      rangeSeekBar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
-          @Override
-          public void valueChanged(Number minValue, Number maxValue) {
-              min_Value.setText(String.valueOf(minValue + "k"));
-              max_Value.setText(String.valueOf(maxValue) + "k");
-          }
-      });
-      rangeSeekBar.setOnRangeSeekbarFinalValueListener(new OnRangeSeekbarFinalValueListener() {
-          @Override
-          public void finalValue(Number minValue, Number maxValue) {
-              String min = minValue + "";
-              String max = maxValue +"";
-              presenter.saveRange(min,max);
+        rangeSeekBar.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number value) {
+                min_Value.setText(String.valueOf(value + "k"));
 
+
+            }
+        });
+
+
+      rangeSeekBar.setOnSeekbarFinalValueListener(new OnSeekbarFinalValueListener() {
+          @Override
+          public void finalValue(Number value) {
+
+              presenter.saveRange(String.valueOf(value));
+              app.setRent(String.valueOf(value) + "000");
 
 
           }
@@ -69,7 +73,7 @@ private ApiService mApiService;
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              tenantBody = new TenantBody(app.getUser_id(),app.getCo_gender(),app.getReligion(),app.getCo_religion(),app.getSmoke(),app.getCo_smoke(),app.getDisabled(),app.getCo_disabled(),app.getLocation_1(),app.getLocation_2(),app.getWork(),app.getDuration());
+              tenantBody = new TenantBody(app.getUser_id(),app.getCo_gender(),app.getReligion(),app.getCo_religion(),app.getSmoke(),app.getCo_smoke(),app.getDisabled(),app.getCo_disabled(),app.getLocation_1(),app.getLocation_2(),app.getWork(),app.getDuration(),app.getRent());
               createTenants(tenantBody);
 
                 presenter.loadNextScreen();

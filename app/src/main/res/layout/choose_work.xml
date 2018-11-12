@@ -69,20 +69,22 @@
 
         />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
+
 
         <EditText
             android:id="@+id/et_placeofWork"
             android:layout_width="match_parent"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:inputType="textCapWords"
             android:layout_height="wrap_content"
-            android:hint="Google Inc"
+            android:hint="The name of the company"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
 
             />
-    </android.support.design.widget.TextInputLayout>
+
 
     <Button
         android:id="@+id/btn_choose_work"

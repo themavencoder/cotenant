@@ -8,7 +8,7 @@ public interface ChooseMonthlyPaymentContractor {
 
     interface Presenter{
         void loadNextScreen();
-        void saveRange(String minRange, String maxRange);
+        void saveRange(String minRange);
     }
 
 

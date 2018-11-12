@@ -15,4 +15,10 @@
     <color name="linear_layout_default">#FCEDBE</color>
     <color name="default_text_color">#3E3221</color>
     <color name="default_bottom_text">#6E6446</color>
+
+    <drawable name="red_color">#FB1949</drawable>
+    <drawable name="blue_color">#1703f4</drawable>
+
+
+
 </resources>

@@ -71,14 +71,18 @@ public class ChooseWorkActivity extends AppCompatActivity implements ChooseWorkC
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             String input = mEditText.getText().toString().trim();
+            presenter.defaultSettings();
                 if (input.length() > 4 && input.length() < 8) {
                     presenter.defaultSettings();
                     presenter.displayError();
+                    return;
 
-
-                } else {
-                    presenter.verify();
                 }
+                if (input.length() > 7) {
+                    presenter.verify();
+                    return;
+                }
+
 
         }
 

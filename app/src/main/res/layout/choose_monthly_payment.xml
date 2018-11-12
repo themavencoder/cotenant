@@ -80,7 +80,7 @@ android:layout_marginRight="16dp"
         android:layout_marginTop="30dp"
         android:clipChildren="false">
 
-        <com.getmobileltd.cotenant.registration.choosemonthlypaymentmvp.RangeBar
+        <com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar
             android:id="@+id/rangeSeekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,13 +89,10 @@ android:layout_marginRight="16dp"
             app:steps="10"
             android:layout_marginTop="30dp"
             app:max_value="100"
-            app:gap="20"
-            app:bar_color="#F3777B"
-            app:bar_highlight_color="#A51419"
-            app:left_thumb_color="#EC1D24"
-            app:right_thumb_color="#EC1D24"
-            app:left_thumb_color_pressed="#BC171C"
-            app:right_thumb_color_pressed="#BC171C"
+            app:bar_color="#7FFF00"
+            app:bar_highlight_color="#228B22"
+            app:left_thumb_color="@color/colorAccent"
+            app:left_thumb_color_pressed="#3CB371"
             app:data_type="_integer"/>
 
         <TextView
@@ -113,7 +110,7 @@ android:layout_marginRight="16dp"
             android:id="@+id/textMax2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100000"
+            android:text="100k"
             android:layout_below="@id/rangeSeekbar"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"

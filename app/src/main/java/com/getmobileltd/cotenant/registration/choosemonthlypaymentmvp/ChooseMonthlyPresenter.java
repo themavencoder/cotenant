@@ -19,8 +19,8 @@ public class ChooseMonthlyPresenter implements ChooseMonthlyPaymentContractor.Pr
     }
 
     @Override
-    public void saveRange(String minRange, String maxRange) {
+    public void saveRange(String minRange) {
       model.setMinValue(minRange);
-      model.setMaxValue(maxRange);
+
     }
 }

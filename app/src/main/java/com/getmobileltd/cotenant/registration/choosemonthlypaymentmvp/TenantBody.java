@@ -36,7 +36,10 @@ public class TenantBody {
     @SerializedName("work")
     private String work;
 
-    public TenantBody(Integer user_id, String co_gender, String religion, String co_religion, String smoke, String co_smoke, String disabled, String co_disabled, String location_1, String location_2, String work, String duration) {
+    @SerializedName("rent")
+    private String rent;
+
+    public TenantBody(Integer user_id, String co_gender, String religion, String co_religion, String smoke, String co_smoke, String disabled, String co_disabled, String location_1, String location_2, String work, String duration,String rent) {
         this.user_id = user_id;
         this.co_gender = co_gender;
         this.religion = religion;
@@ -49,6 +52,7 @@ public class TenantBody {
         this.location_2 = location_2;
         this.duration = duration;
         this.work = work;
+        this.rent = rent;
     }
 
     @SerializedName("duration")

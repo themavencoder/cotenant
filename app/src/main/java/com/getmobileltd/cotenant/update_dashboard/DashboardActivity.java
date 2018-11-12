@@ -2,11 +2,13 @@ package com.getmobileltd.cotenant.update_dashboard;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +22,7 @@ import com.getmobileltd.cotenant.history.HistoryActivity;
 import com.getmobileltd.cotenant.interest.InterestActivity;
 import com.getmobileltd.cotenant.payment.EmptyPayment;
 import com.getmobileltd.cotenant.settings.SettingsActivity;
+import com.getmobileltd.cotenant.update_available_space.AvailableSpaceActivity;
 import com.getmobileltd.cotenant.update_dashboard.adapters.LocationAdapter;
 import com.getmobileltd.cotenant.update_dashboard.models.HousesModel;
 import com.getmobileltd.cotenant.update_dashboard.models.LocationModel;
@@ -45,6 +48,10 @@ public class DashboardActivity extends AppCompatActivity {
         setTitle("Dashboard");
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
+        nv = findViewById(R.id.nv);
+        NavigationMenuView navMenuView = (NavigationMenuView) nv.getChildAt(0);
+        navMenuView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+        navMenuView.isSelected();
         dummyData();
         locationAdapter = new LocationAdapter(this,locationModelList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
@@ -56,7 +63,7 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        nv = findViewById(R.id.nv);
+
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -68,7 +75,7 @@ public class DashboardActivity extends AppCompatActivity {
                         break;
 
                     case R.id.available_space:
-                        startActivity(new Intent(DashboardActivity.this, AvailableSpaceChecked.class));
+                        startActivity(new Intent(DashboardActivity.this, AvailableSpaceActivity.class));
                         break;
                     case R.id.interest:
                         startActivity(new Intent(DashboardActivity.this, InterestActivity.class));
@@ -101,8 +108,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void dummyData() {
         LocationModel locationModel = new LocationModel();
+        LocationModel locationModel2 = new LocationModel();
         int i = 0;
-        while (i < 3) {
+
             locationModel.setLocationOfPlace("Yaba");
             List<HousesModel> model = new ArrayList<>();
             model.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.defaultimage));
@@ -116,9 +124,21 @@ public class DashboardActivity extends AppCompatActivity {
 
             locationModelList.add(locationModel);
 
-            i++;
+         locationModel2.setLocationOfPlace("Surulere");
+        List<HousesModel> model1 = new ArrayList<>();
+        model1.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.secondsample));
+        model1.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.secondsample));
+        model1.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.secondsample));
+        model1.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.secondsample));
+        model1.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.secondsample));
+        model1.add(new HousesModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.secondsample));
 
-        }
+        locationModel2.setModelList(model1);
+
+        locationModelList.add(locationModel2);
+
+
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

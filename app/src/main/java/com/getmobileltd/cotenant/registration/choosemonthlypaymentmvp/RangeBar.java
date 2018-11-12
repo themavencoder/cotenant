@@ -4,9 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar;
+import com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 
-public class RangeBar extends BubbleThumbRangeSeekbar {
+public class RangeBar extends BubbleThumbSeekbar {
     public RangeBar(Context context) {
         super(context);
     }
@@ -19,12 +20,5 @@ public class RangeBar extends BubbleThumbRangeSeekbar {
         super(context, attrs, defStyleAttr);
     }
 
-    @Override
-    protected float getBarHeight() {
-        return 10f;
-    }
-
-
 }
-
 

@@ -1,15 +1,18 @@
 package com.getmobileltd.cotenant.update_dashboard.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.update_available_space_details.AvailableSpaceDetails;
 import com.getmobileltd.cotenant.update_dashboard.models.HousesModel;
 
 import java.util.List;
@@ -53,14 +56,22 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
         private TextView addressLOcation;
         private ImageView image;
         private TextView rent;
-
-        public MyViewHolder(View itemView) {
+        private Button btn_details;
+        public MyViewHolder(final View itemView) {
             super(itemView);
             bedroom = itemView.findViewById(R.id.bedroomNumber);
             stateLocation = itemView.findViewById(R.id.stateLocation);
             addressLOcation = itemView.findViewById(R.id.addressLocation);
             image = itemView.findViewById(R.id.apartmentImage);
             rent = itemView.findViewById(R.id.rent);
+            btn_details = itemView.findViewById(R.id.details_button);
+            btn_details.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(),AvailableSpaceDetails.class);
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
