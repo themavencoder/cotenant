@@ -36,7 +36,15 @@ public class CardDetailsActivity extends AppCompatActivity {
     }
 
     private void init() {
+        mExpirationDate = findViewById(R.id.expiration_date);
         mEditText = findViewById(R.id.cardNumber);
+        checkDrawableType();
+        mEditText.addTextChangedListener(cardNumberwatcher);
+        mExpirationDate.addTextChangedListener(expiration);
+
+    }
+
+    private void checkDrawableType() {
         if (getIntent().getStringExtra("type_of_card").equals("1")) {
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_mastercard);
             mEditText.setCompoundDrawablesWithIntrinsicBounds(null, null, img, null);
@@ -45,9 +53,6 @@ public class CardDetailsActivity extends AppCompatActivity {
             Drawable img = getApplicationContext().getResources().getDrawable(R.drawable.ic_visa);
             mEditText.setCompoundDrawablesWithIntrinsicBounds(null, null, img, null);
         }
-        mExpirationDate = findViewById(R.id.expiration_date);
-        mEditText.addTextChangedListener(cardNumberwatcher);
-        mExpirationDate.addTextChangedListener(expiration);
 
     }
 
