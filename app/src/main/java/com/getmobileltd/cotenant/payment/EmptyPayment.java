@@ -23,7 +23,7 @@ public class EmptyPayment extends AppCompatActivity {
        mButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               startActivity(new Intent(EmptyPayment.this,SetUpCardActivity.class));
+               startActivity(new Intent(EmptyPayment.this,ChooseCardType.class));
            }
        });
 

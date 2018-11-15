@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.TestActivity;
-import com.getmobileltd.cotenant.dashboard.DefaultDashboard;
+
 import com.getmobileltd.cotenant.update_dashboard.DashboardActivity;
 
 public class LastRegActivity extends AppCompatActivity {
@@ -24,11 +24,5 @@ public class LastRegActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("");
         mButton = findViewById(R.id.skip_to_dashboard);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LastRegActivity.this, DashboardActivity.class));
-            }
-        });
     }
 }

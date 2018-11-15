@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -47,35 +48,23 @@
         </activity>
         <activity
             android:name=".registration.aboutyoumvp.AboutYouActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".registration.apppinmvp.AppPinActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".dashboard.DefaultDashboard"
             android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".mergedashboard.MergedDashboard"
-            android:label="Dashboard" >
-
-
-        </activity>
+            android:label="Dashboard"></activity>
         <activity
             android:name=".interest.InterestActivity"
             android:label="Interest" />
         <activity android:name=".history.HistoryActivity" />
-        <activity android:name=".payment.SetUpCardActivity" />
-        <activity android:name=".navdrawer.NavigationActivity" >
-
-
-        </activity>
+        <activity android:name=".payment.CardDetailsActivity" />
+        <activity android:name=".navdrawer.NavigationActivity"></activity>
         <activity
             android:name=".registration.comfortablegendermvp.ComfortableGenderActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -90,14 +79,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registration.chooselivemvp.ChooseLiveActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".registration.chooseworkmvp.ChooseWorkActivity" />
         <activity android:name=".registration.salaryrangemvp.SalaryRangeActivity" />
         <activity android:name=".registration.choosemonthlypaymentmvp.ChooseMonthlyPayment" />
@@ -113,17 +95,15 @@
         <activity android:name=".availablespacechecked.AvailableSpaceChecked" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".update_dashboard.DashboardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".update_available_space.AvailableSpaceActivity">
-
-        </activity>
-        <activity android:name=".update_available_space_details.AvailableSpaceDetails">
-
-
-        </activity>
+        <activity android:name=".update_available_space.AvailableSpaceActivity"></activity>
+        <activity android:name=".update_available_space_details.AvailableSpaceDetails"></activity>
+        <activity android:name=".payment.ChooseCardType"></activity>
     </application>
 
 </manifest>

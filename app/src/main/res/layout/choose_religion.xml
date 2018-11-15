@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-android:background="@color/grey"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -13,8 +12,7 @@ android:background="@color/grey"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,19 +26,20 @@ android:background="@color/grey"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="/"
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
             android:text="11"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
 
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,99 +52,99 @@ android:background="@color/grey"
         android:textStyle="bold" />
 
     <TextView
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black_shade"
-
-        android:layout_marginBottom="14dp"
-        android:text="Are you a"
-        android:textSize="18sp"
-        />
-    <RadioGroup
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="14dp"
+
+        android:text="Are you a"
+        android:textColor="@color/black_shade"
+        android:textSize="18sp" />
+
+    <RadioGroup
         android:id="@+id/myreligion"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
 
-        android:layout_height="wrap_content">
-<RadioButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/radiobutton_christian_personal_choose_religion"
-    android:layout_marginBottom="8dp"
-    android:textSize="16sp"
-    android:textColor="@color/black_shade"
-    android:text = "@string/christian"
-    />
+        android:layout_marginRight="16dp">
+
         <RadioButton
+            android:id="@+id/radiobutton_christian_personal_choose_religion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/christian"
+            android:textColor="@color/black_shade"
+            android:textSize="16sp" />
+
+        <RadioButton
             android:id="@+id/radiobutton_muslim_personal_choose_religion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Muslim"
             android:textColor="@color/black_shade"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
     </RadioGroup>
 
     <TextView
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black_shade"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
 
         android:layout_marginBottom="14dp"
-        android:layout_marginTop="32dp"
         android:text="Can you stay with a "
-        android:textSize="18sp"
-        />
+        android:textColor="@color/black_shade"
+        android:textSize="18sp" />
+
     <RadioGroup
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:id="@+id/roomatereligion"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
 
-        android:layout_height="wrap_content">
+        android:layout_marginRight="16dp">
+
         <RadioButton
+            android:id="@+id/radiobutton_christian_roomate_choose_religion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_christian_roomate_choose_religion"
             android:layout_marginBottom="8dp"
 
-            android:textSize="16sp"
+            android:text="@string/christian"
             android:textColor="@color/black_shade"
-            android:text = "@string/christian"
-            />
+            android:textSize="16sp" />
+
         <RadioButton
+            android:id="@+id/radiobutton_muslim_roomate_choose_religion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_muslim_roomate_choose_religion"
             android:text="Muslim"
             android:textColor="@color/black_shade"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
+
         <RadioButton
+            android:id="@+id/radiobutton_any_roomate_choose_religion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_any_roomate_choose_religion"
             android:text="Any"
             android:textColor="@color/black_shade"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
     </RadioGroup>
 
     <Button
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:id="@+id/btn_choose_religion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_choose_religion"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
 
         android:background="@drawable/btn_red"
         android:onClick="nextScreen"

@@ -25,8 +25,8 @@ public class HistoryDetailsAdapter extends RecyclerView.Adapter<HistoryDetailsAd
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_history_details,parent,false);
-            return new MyViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_history_details,parent,false);
+        return new MyViewHolder(v);
 
     }
 

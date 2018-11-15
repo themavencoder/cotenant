@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment.ChooseCardType">
+
+    <include
+        android:id="@+id/include7"
+        layout="@layout/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Choose a card type"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include7" />
+
+    <RadioGroup
+        android:id="@+id/typeOfCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36">
+
+        <RadioButton
+            android:id="@+id/mastercard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:drawableRight="@drawable/ic_mastercard"
+            android:background="@drawable/payment_button_background"
+            android:paddingTop="8dp"
+            android:gravity="center|left"
+            android:paddingBottom="8dp"
+            android:paddingRight="10dp"
+            android:text="Mastercard"
+            android:textColor="@color/black_shade"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/visa"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:paddingRight="10dp"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            android:drawableRight="@drawable/ic_visa"
+            android:background="@drawable/payment_button_background"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp"
+
+            android:text="Visa"
+
+            android:textColor="@color/black_shade"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/verve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/payment_button_background"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+
+            android:text="Verve"
+
+            android:textColor="@color/black_shade"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_select_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/btn_red"
+        android:text="Continue"
+        android:onClick="cardSelected"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeOfCard" />
+</android.support.constraint.ConstraintLayout>

@@ -10,6 +10,6 @@
     app:popupTheme="@style/AppTheme.PopupOverlay"
     app:layout_scrollFlags="scroll|enterAlways"
     app:titleTextAppearance="@style/Toolbar.TitleText"
-    android:background="#e5e5e5">
+    android:background="@color/white">
 
 </android.support.v7.widget.Toolbar>

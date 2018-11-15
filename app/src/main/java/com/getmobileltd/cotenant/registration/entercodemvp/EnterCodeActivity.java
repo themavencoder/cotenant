@@ -42,6 +42,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
         setContentView(R.layout.activity_enter_code);
         presenter = new EnterCodePresenter(this);
         init();

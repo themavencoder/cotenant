@@ -29,6 +29,10 @@ public class AppInstance {
     private String duration;
     private Integer co_id;
 
+    //Check if card has been edited variable.
+
+    private int checkCardID;
+
     public static AppInstance getInstance() {
         if (sInstance == null) {
             sInstance = new AppInstance();
@@ -36,6 +40,13 @@ public class AppInstance {
         return sInstance;
     }
 
+    public int getCheckCardID() {
+        return checkCardID;
+    }
+
+    public void setCheckCardID(int checkCardID) {
+        this.checkCardID = checkCardID;
+    }
 
     public Integer getUser_id() {
         return user_id;

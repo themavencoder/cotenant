@@ -23,7 +23,7 @@ public class AvailableSpaceDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_available_space_details);
+        setContentView(R.layout.activity_available_space_details_merged);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Available space");
