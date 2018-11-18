@@ -58,27 +58,28 @@ public class CardDetailsActivity extends AppCompatActivity {
 
     public void nextScreenLoad(View view) {
         String card_string = getIntent().getStringExtra("type_of_card");
-String extraIntent = getIntent().getStringExtra(ChooseCardType.ARG_ITEM_ID);
-            AppInstance app = AppInstance.getInstance();
-            int checkCardId = app.getCheckCardID();
-            if (checkCardId == 0) {
-                OtherCardsModel newCard = new OtherCardsModel();
-                newCard.setMonth(CardDetailsModel.getMonth());
-                newCard.setLastFourDigits(CardDetailsModel.getCardNumber());
-                if (card_string.equals("1")) {
-                    newCard.setCardType(R.drawable.ic_mastercard);
-                }
-                if (card_string.equals("2")) {
-                    newCard.setCardType(R.drawable.ic_visa);
-                }
-                Operations.createCard(newCard);
-                startActivity(new Intent(this, SavedPayments.class));
-            }else {
+        AppInstance app = AppInstance.getInstance();
+        int checkCardId = app.getCheckCardID();
+        if (checkCardId == 0) {
+
+            OtherCardsModel newCard = new OtherCardsModel();
+            newCard.setMonth(CardDetailsModel.getMonth());
+            newCard.setLastFourDigits(CardDetailsModel.getCardNumber());
+            if (card_string.equals("1")) {
+                newCard.setCardType(R.drawable.ic_mastercard);
+            }
+            if (card_string.equals("2")) {
+                newCard.setCardType(R.drawable.ic_visa);
+            }
+            Operations.createCard(newCard);
+            startActivity(new Intent(this, SavedPayments.class));
+        } else {
 
             OtherCardsModel updateCard = new OtherCardsModel();
             updateCard.setId(checkCardId);
             updateCard.setMonth(CardDetailsModel.getMonth());
             updateCard.setLastFourDigits(CardDetailsModel.getCardNumber());
+            app.setCheckCardID(0);
             if (card_string.equals("1")) {
                 updateCard.setCardType(R.drawable.ic_mastercard);
             }
@@ -86,8 +87,8 @@ String extraIntent = getIntent().getStringExtra(ChooseCardType.ARG_ITEM_ID);
                 updateCard.setCardType(R.drawable.ic_visa);
 
             }
-                Operations.updateCard(updateCard);
-                startActivity(new Intent(this, SavedPayments.class));
+            Operations.updateCard(updateCard);
+            startActivity(new Intent(this, SavedPayments.class));
 
 
         }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.payment.CardDetailsActivity;
 import com.getmobileltd.cotenant.payment.ChooseCardType;
 import com.getmobileltd.cotenant.payment.EmptyPayment;
 import com.getmobileltd.cotenant.payment.savedpayments.helper.Operations;
@@ -47,10 +48,12 @@ public class OtherCardsAdapter extends RecyclerView.Adapter<OtherCardsAdapter.My
         holder.editCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                AppInstance app = AppInstance.getInstance();
                app.setCheckCardID(modelList.get(position).getId());
                 Context context = view.getContext();
                 Intent intent = new Intent(context, ChooseCardType.class);
+
                 new AppInstance().setCheckCardID(modelList.get(position).getId());
                 context.startActivity(intent);
 

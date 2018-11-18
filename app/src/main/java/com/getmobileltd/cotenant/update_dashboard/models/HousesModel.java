@@ -6,14 +6,21 @@ public class HousesModel {
     private String stateLocation;
     private String addressLocation;
     private String rent;
-    private int imageOfLocation;
+    private String imageOfLocation;
 
-    public HousesModel(String bedroom, String stateLocation, String addressLocation, String rent, int imageOfLocation) {
+    public HousesModel(String bedroom, String stateLocation, String addressLocation, String rent, String imageOfLocation) {
         this.bedroom = bedroom;
         this.stateLocation = stateLocation;
         this.addressLocation = addressLocation;
         this.rent = rent;
         this.imageOfLocation = imageOfLocation;
+    }
+
+    public HousesModel(String bedroom, String stateLocation, String addressLocation, String rent) {
+        this.bedroom = bedroom;
+        this.stateLocation = stateLocation;
+        this.addressLocation = addressLocation;
+        this.rent = rent;
     }
 
     public HousesModel() {
@@ -52,11 +59,11 @@ public class HousesModel {
         this.rent = rent;
     }
 
-    public int getImageOfLocation() {
+    public String getImageOfLocation() {
         return imageOfLocation;
     }
 
-    public void setImageOfLocation(int imageOfLocation) {
+    public void setImageOfLocation(String imageOfLocation) {
         this.imageOfLocation = imageOfLocation;
     }
 }

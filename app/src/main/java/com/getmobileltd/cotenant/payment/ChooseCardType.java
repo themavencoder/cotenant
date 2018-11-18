@@ -16,7 +16,7 @@ public class ChooseCardType extends AppCompatActivity implements RadioGroup.OnCh
     private RadioButton mRadioButton;
     private static final String MASTER_CARD = "1";
     private static final String  VISA = "2";
-    public static final String ARG_ITEM_ID = "item_id";
+
 
 
     @Override

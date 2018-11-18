@@ -49,7 +49,7 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.MyView
 
     @Override
     public int getItemCount() {
-        return locationList.size();
+        return null!= locationList ? locationList.size() : 0;
     }
 
 

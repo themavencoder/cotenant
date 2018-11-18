@@ -2,6 +2,8 @@ package com.getmobileltd.cotenant.update_dashboard.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.getmobileltd.cotenant.R;
 import com.getmobileltd.cotenant.update_available_space_details.AvailableSpaceDetails;
 import com.getmobileltd.cotenant.update_dashboard.models.HousesModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -41,13 +46,23 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
         holder.addressLOcation.setText(housesList.get(position).getAddressLocation());
         holder.bedroom.setText(housesList.get(position).getBedroom());
         holder.rent.setText(housesList.get(position).getRent());
-        holder.image.setImageResource(housesList.get(position).getImageOfLocation());
+     //   holder.image.setImageResource(housesList.get(position).getImageOfLocation());
+
+      /*  Picasso.with(context)
+                .load(R.drawable.defaultdashboard)
+                .placeholder(R.drawable.ic_refresh_page)
+                .into(holder.image);*/
+        Glide.with(context)
+                .load("http://azaliaevents.com.ng/wp-content/uploads/2018/05/IMG-20180515-WA0037.jpg")
+                .apply(new RequestOptions().override(600,200).fitCenter().placeholder(new ColorDrawable(Color.GREEN)).error(R.drawable.ic_warning).centerCrop())
+                .into(holder.image);
+
 
     }
 
     @Override
     public int getItemCount() {
-        return housesList.size();
+        return null != housesList ? housesList.size() :0;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
