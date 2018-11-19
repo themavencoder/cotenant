@@ -26,6 +26,8 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
 
     private Context context;
     private List<HousesModel> housesList;
+    public static final String HOUSEADAPTER = "house_adapter";
+
 
     public HousesAdapter(Context context, List<HousesModel> housesList) {
         this.context = context;
@@ -41,7 +43,8 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder,  int position) {
+        final HousesModel housesModel = housesList.get(position);
         holder.stateLocation.setText(housesList.get(position).getStateLocation());
         holder.addressLOcation.setText(housesList.get(position).getAddressLocation());
         holder.bedroom.setText(housesList.get(position).getBedroom());
@@ -56,6 +59,15 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
                 .load("http://azaliaevents.com.ng/wp-content/uploads/2018/05/IMG-20180515-WA0037.jpg")
                 .apply(new RequestOptions().override(600,200).fitCenter().placeholder(new ColorDrawable(Color.GREEN)).error(R.drawable.ic_warning).centerCrop())
                 .into(holder.image);
+        holder.btn_details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(view.getContext(),AvailableSpaceDetails.class);
+                intent.putExtra(HOUSEADAPTER,housesModel);
+                view.getContext().startActivity(intent);
+            }
+        });
 
 
     }
@@ -80,13 +92,10 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
             image = itemView.findViewById(R.id.apartmentImage);
             rent = itemView.findViewById(R.id.rent);
             btn_details = itemView.findViewById(R.id.details_button);
-            btn_details.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(view.getContext(),AvailableSpaceDetails.class);
-                    view.getContext().startActivity(intent);
-                }
-            });
+
+
         }
+
+
     }
 }

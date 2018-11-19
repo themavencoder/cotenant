@@ -24,7 +24,9 @@ import com.getmobileltd.cotenant.payment.EmptyPayment;
 import com.getmobileltd.cotenant.registration.apppinmvp.Client;
 import com.getmobileltd.cotenant.settings.SettingsActivity;
 import com.getmobileltd.cotenant.update_available_space.AvailableSpaceActivity;
+import com.getmobileltd.cotenant.update_available_space_details.AvailableSpaceDetails;
 import com.getmobileltd.cotenant.update_dashboard.adapters.DashboardInterestAdapter;
+import com.getmobileltd.cotenant.update_dashboard.adapters.HouseOnClickInterface;
 import com.getmobileltd.cotenant.update_dashboard.adapters.LocationAdapter;
 import com.getmobileltd.cotenant.update_dashboard.api.ApiService;
 import com.getmobileltd.cotenant.update_dashboard.api.LocationOne;
@@ -57,6 +59,8 @@ public class DashboardActivity extends AppCompatActivity {
     private TwoLocations twoLocations;
     private String a = "Yaba";
     private String b = "Surulere";
+    public static final String HOUSEMODEL = "house_model";
+    public static final String HOUSE_KEY = "house";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,14 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getLocation();
+        HouseOnClickInterface houseOnClickInterface = new HouseOnClickInterface() {
+            @Override
+            public void showDetails(HousesModel housesModel) {
+                Intent intent = new Intent(DashboardActivity.this,AvailableSpaceDetails.class);
+                intent.putExtra(HOUSEMODEL, housesModel);
+                startActivity(intent);
+            }
+        };
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -204,7 +216,9 @@ public class DashboardActivity extends AppCompatActivity {
                              String address = m.getAddress();
                              String amount = m.getAmount();
                              String image = m.getImage();
-                             modelHouse.add(new HousesModel(bathroom,location, address, amount));
+                             String additional_details  = m.getDescription();
+                             int id = m.getId();
+                             modelHouse.add(new HousesModel(bathroom,location, address, amount,additional_details, id));
 
                          }
                          locationModelOne.setModelList(modelHouse);
@@ -219,9 +233,11 @@ public class DashboardActivity extends AppCompatActivity {
                             String location = m.getLocation();
                             String address = m.getAddress();
                             String amount = m.getAmount();
+                            String additional_details = m.getDescription();
+                            int id = m.getId();
 
 
-                            modelHouse2.add(new HousesModel(bathroom,location,address,amount));
+                            modelHouse2.add(new HousesModel(bathroom,location,address,amount,additional_details, id));
                         }
                         locationModelTwo.setModelList(modelHouse2);
                         locationModelList.add(locationModelTwo);

@@ -37,7 +37,6 @@ public class InterestActivity extends AppCompatActivity {
         modelList = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_interest);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
-        loadJson();
 
         adapter = new InterestAdapter(getApplicationContext(),modelList);
         recyclerView.setAdapter(adapter);
@@ -45,7 +44,7 @@ public class InterestActivity extends AppCompatActivity {
 
     }
 
-    private void loadJson() {
+  /*  private void loadJson() {
 
         try {
             if (BuildConfig.THE_MOVIE_DB_API_TOKEN.isEmpty()) {
@@ -82,5 +81,5 @@ public class InterestActivity extends AppCompatActivity {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
-
+*/
 }
