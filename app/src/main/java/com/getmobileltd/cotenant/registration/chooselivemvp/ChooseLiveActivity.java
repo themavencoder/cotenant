@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -87,7 +88,9 @@ public class ChooseLiveActivity extends AppCompatActivity {
                  startActivity(new Intent(ChooseLiveActivity.this, ChooseWorkActivity.class));
              }
              else {
-                 Toast.makeText(ChooseLiveActivity.this, "Enter two locations only! Terminate each location with a space", Toast.LENGTH_LONG).show();
+                  Toast toast =  Toast.makeText(ChooseLiveActivity.this, "Enter two locations only! Terminate each location with a space", Toast.LENGTH_LONG);
+                  toast.setGravity(Gravity.CENTER,0,0);
+                  toast.show();
              }
             }
         });

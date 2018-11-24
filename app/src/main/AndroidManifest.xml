@@ -5,8 +5,12 @@
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
 
     <application
+        android:name=".database.util.MyApplication"
         android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -48,15 +52,20 @@
         </activity>
         <activity
             android:name=".registration.aboutyoumvp.AboutYouActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+
+        </activity>
         <activity
             android:name=".registration.apppinmvp.AppPinActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".dashboard.DefaultDashboard"
-            android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
+               <activity
             android:name=".mergedashboard.MergedDashboard"
             android:label="Dashboard"></activity>
         <activity
@@ -95,15 +104,16 @@
         <activity android:name=".availablespacechecked.AvailableSpaceChecked" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".update_dashboard.DashboardActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".update_available_space.AvailableSpaceActivity"></activity>
         <activity android:name=".update_available_space_details.AvailableSpaceDetails"></activity>
         <activity android:name=".payment.ChooseCardType"></activity>
+        <activity android:name=".profile.TakePicture"></activity>
     </application>
 
 </manifest>

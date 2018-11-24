@@ -16,6 +16,7 @@ import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.BubbleThumbSeekbar;
 import com.getmobileltd.cotenant.AppInstance;
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.database.table.UserModel;
 import com.getmobileltd.cotenant.registration.apppinmvp.AppPinActivity;
 import com.getmobileltd.cotenant.registration.apppinmvp.Client;
 import com.getmobileltd.cotenant.registration.lastregmvp.LastRegActivity;
@@ -109,8 +110,14 @@ private ApiService mApiService;
             @Override
             public void onResponse(Call<TenantResponse> call, Response<TenantResponse> response) {
                 if (response.body().getCode() == 201) {
-                    Toast.makeText(ChooseMonthlyPayment.this, "Value inserted", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(ChooseMonthlyPayment.this, "Value inserted and tenant id is" + response.body().getData().getTenant_id() , Toast.LENGTH_SHORT).show();
+                    app.setCo_id(response.body().getData().getTenant_id());
+                    UserModel userModel = new UserModel();
+                    userModel.setId(1);
+                    userModel.setFirstName(app.getFirstName());
+                    userModel.setLastName(app.getLastName());
+                    userModel.setPlaceOfWork(app.getWork());
+                    userModel.save();
                 } else {
                     Toast.makeText(ChooseMonthlyPayment.this, "Error code" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }

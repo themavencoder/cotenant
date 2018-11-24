@@ -74,7 +74,7 @@ public class EnterCodeActivity extends AppCompatActivity implements EnterCodeCon
             public void onResponse(Call<EnterCodeResponse> call, Response<EnterCodeResponse> response) {
                 if (response.body().getCode() == 200) {
                     mDilatingDotsProgressBar.hideNow();
-                    Toast.makeText(EnterCodeActivity.this, "Successfully verified" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EnterCodeActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(EnterCodeActivity.this, ComfortableGenderActivity.class));
                 }
                  else {

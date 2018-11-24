@@ -19,7 +19,7 @@
 
         android:layout_marginTop="16dp"
 
-        android:src="@drawable/adeboye"
+        android:src="@drawable/thumb"
         app:civ_border_overlay="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/fullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -54,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:id = "@+id/workPlace"
 
         android:layout_marginTop="4dp"
         android:text="Getmobile Technology"
@@ -62,7 +63,7 @@
         android:textColor="#BDBDBD"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/circleImageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
     <Button
         android:layout_width="60dp"

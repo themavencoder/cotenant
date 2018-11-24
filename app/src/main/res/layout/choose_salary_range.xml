@@ -7,7 +7,19 @@
     android:layout_height="match_parent">
 
 
-    <include layout="@layout/toolbar"/>
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        style="@style/Headerbar"
+        app:theme="@style/AppTheme.ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:background="@color/grey">
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -83,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:background="@color/regButtonColor"
+        android:background="@drawable/btn_red"
         android:id="@+id/btn_choose_salary_range"
         android:text="@string/next"
         android:textAllCaps="false"

@@ -9,10 +9,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.database.table.Favorites;
+import com.getmobileltd.cotenant.database.table.Favorites_Table;
 import com.getmobileltd.cotenant.update_dashboard.adapters.HousesAdapter;
 import com.getmobileltd.cotenant.update_dashboard.models.HousesModel;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,48 +49,54 @@ public class AvailableSpaceDetails extends AppCompatActivity {
         dataSourceList = getAllItems();
         adapter = new DetailsPagerAdapter(this,dataSourceList);
         viewPager = findViewById(R.id.viewPager);
-        housesModel = new HousesModel(false);
+        housesModel = new HousesModel();
         housesModel = getIntent().getParcelableExtra(HOUSEADAPTER);
-        if (housesModel == null) {
-            Toast.makeText(this, "MODEL is null", Toast.LENGTH_SHORT).show();
-        }
+        likeButton = findViewById(R.id.like_button);
+
+        List<Favorites> favorites = SQLite.select()
+                .from(Favorites.class)
+                .where(Favorites_Table.isLike.eq(true)).queryList();
+
+       for (int i = 0; i < favorites.size(); i++) {
+           if (favorites.get(i).getId() == housesModel.getId()) {
+            likeButton.setLiked(true);
+           }
+       }
+
 
         viewPager.setAdapter(adapter);
         circleIndicator.setViewPager(viewPager);
-        likeButton = findViewById(R.id.like_button);
+
+
+
+
+
+
 
 
 
         likeButton.setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {
-                if (housesModel != null) {
-                    housesModel.setLike(true);
-                }
-//                Toast.makeText(AvailableSpaceDetails.this, "Like"+housesModel.isLike(), Toast.LENGTH_SHORT).show();
 
-             /*   SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(LIKE,likeButton.isLiked());
-                editor.apply();
-                Toast.makeText(AvailableSpaceDetails.this, "" + likeButton.isLiked(), Toast.LENGTH_SHORT).show();
-*/
+                Favorites favorites = new Favorites();
+                if (housesModel != null) {
+                    favorites.setId(housesModel.getId());
+                }
+                favorites.setLike(true);
+                favorites.save();
 
             }
 
             @Override
             public void unLiked(LikeButton likeButton) {
-              /*  SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean(LIKE,false);
-                editor.apply();
-                Toast.makeText(AvailableSpaceDetails.this, "" + likeButton.isLiked(), Toast.LENGTH_SHORT).show();
+                Favorites favorites = new Favorites();
+                if (housesModel != null) {
+                    favorites.setId(housesModel.getId());
+                }
+                favorites.setLike(false);
+                favorites.save();
 
-*/
-              if (housesModel != null) {
-                  housesModel.setLike(false);
-              }
-                Toast.makeText(AvailableSpaceDetails.this, "Like"+housesModel.isLike(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -95,7 +104,7 @@ public class AvailableSpaceDetails extends AppCompatActivity {
             init();
 
             if (housesModel != null) {
-                likeButton.setLiked(housesModel.isLike());
+
 
                 populateViews();
             }

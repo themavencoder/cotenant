@@ -8,19 +8,28 @@
     android:layout_height="match_parent"
     tools:context=".registration.lastregmvp.LastRegActivity">
 
-    <include
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/include3"
-        layout="@layout/toolbar"
-
+        android:layout_height="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        style="@style/Headerbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:theme="@style/AppTheme.ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:background="@color/grey">
+    </android.support.v7.widget.Toolbar>
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/checked"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
 
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text=" Fantastic job!"
         android:textColor="@android:color/black"

@@ -5,144 +5,173 @@
 android:background="@color/grey"
     android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar"/>
-
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Headerbar"
+        app:theme="@style/AppTheme.ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:background="@color/grey">
 
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation= "vertical">
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                >
 
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="/"
-            android:textSize="24sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="11"
-            android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="/"
+                    android:textSize="24sp" />
 
-
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="16dp"
-        android:text="Personal Preference"
-        android:textColor="@color/black_shade"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black_shade"
-
-        android:layout_marginBottom="14dp"
-        android:text="Do you smoke?"
-        android:textSize="18sp"
-        />
-    <RadioGroup
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:id="@+id/radiogroup_choosesmoke_one"
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:textColor="@color/black_shade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_choosesmoke_one_yes"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
-            android:text = "@string/yes"
-            />
-        <RadioButton
-            android:textColor="@color/black_shade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_choosesmoke_one_no"
-            android:text="@string/no"
-            android:textSize="16sp"
-            />
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black_shade"
-
-        android:layout_marginBottom="14dp"
-        android:layout_marginTop="32dp"
-        android:text="Can you stay with someone who smokes? "
-        android:textSize="18sp"
-        />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:id="@+id/radiogroup_choosesmoke_two"
-        android:layout_marginRight="16dp"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:textColor="@color/black_shade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_choosesmoke_two_yes"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
-            android:text = "@string/yes"
-            />
-        <RadioButton
-            android:textColor="@color/black_shade"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radiobutton_choosesmoke_two_no"
-            android:text="@string/no"
-            android:textSize="16sp"
-            />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="11"
+                    android:textSize="18sp" />
 
 
-    </RadioGroup>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="16dp"
+                android:text="Personal Preference"
+                android:textColor="@color/black_shade"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_shade"
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/choosesmoke_button"
-        android:layout_marginRight="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+                android:layout_marginBottom="14dp"
+                android:text="Do you smoke?"
+                android:textSize="18sp"
+                />
+            <RadioGroup
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:id="@+id/radiogroup_choosesmoke_one"
+                android:layout_width="wrap_content"
 
-        android:background="@drawable/btn_red"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:textColor="@color/black_shade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_choosesmoke_one_yes"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp"
+                    android:text = "@string/yes"
+                    />
+                <RadioButton
+                    android:textColor="@color/black_shade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_choosesmoke_one_no"
+                    android:text="@string/no"
+                    android:textSize="16sp"
+                    />
 
-        android:text="@string/next"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
-</LinearLayout>
+            </RadioGroup>
+
+            <TextView
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_shade"
+
+                android:layout_marginBottom="14dp"
+                android:layout_marginTop="32dp"
+                android:text="Can you stay with someone who smokes? "
+                android:textSize="18sp"
+                />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:id="@+id/radiogroup_choosesmoke_two"
+                android:layout_marginRight="16dp"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:textColor="@color/black_shade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_choosesmoke_two_yes"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp"
+                    android:text = "@string/yes"
+                    />
+                <RadioButton
+                    android:textColor="@color/black_shade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_choosesmoke_two_no"
+                    android:text="@string/no"
+                    android:textSize="16sp"
+                    />
+
+
+            </RadioGroup>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/choosesmoke_button"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+
+                android:background="@drawable/btn_red"
+
+                android:text="@string/next"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+   </LinearLayout>

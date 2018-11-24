@@ -31,7 +31,7 @@ public class AvailableSpaceActivity extends AppCompatActivity implements SearchV
         setTitle("Available Space");
 
      modelList = new ArrayList<>();
-     dummyData();
+     //dummyData();
      searchView = findViewById(R.id.editTextHint);
      searchView.setOnQueryTextListener(this);
         searchView.setQueryHint("Search location");
@@ -43,7 +43,7 @@ public class AvailableSpaceActivity extends AppCompatActivity implements SearchV
      recyclerView.setAdapter(availableSpaceAdapter);
     }
 
-    private void dummyData() {
+    /*private void dummyData() {
 
         modelList.add(new AvailableSpaceModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.defaultimage));
         modelList.add(new AvailableSpaceModel("2 BEDROOM","Kastina","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.defaultimage));
@@ -62,7 +62,7 @@ public class AvailableSpaceActivity extends AppCompatActivity implements SearchV
         modelList.add(new AvailableSpaceModel("2 BEDROOM","Yaba","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.defaultimage));
         modelList.add(new AvailableSpaceModel("2 BEDROOM","Ikorodu","42,Montgomerry road, Yaba","NGN 50 000",R.drawable.defaultimage));
 
-    }
+    }*/
 
 
     @Override

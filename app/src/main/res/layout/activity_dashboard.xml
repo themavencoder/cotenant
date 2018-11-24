@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id = "@+id/activity_dashboard_swipe_refresh_layout"
+    android:layout_width = "match_parent"
+    android:layout_height = "wrap_content">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,7 +13,8 @@
 
     <include layout="@layout/toolbar" />
 
-    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/drawerLayout"
@@ -254,8 +259,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:headerLayout="@layout/nav_header"
-            app:itemBackground="@drawable/nav_item_background"
-            app:itemTextColor="@drawable/nav_item_text"
+            app:itemBackground="@drawable/btn_transparent"
+
 
             app:menu="@menu/navigation_menu"
 
@@ -268,6 +273,7 @@
 
 </RelativeLayout>
 
+</android.support.v4.widget.SwipeRefreshLayout>
 
 
 

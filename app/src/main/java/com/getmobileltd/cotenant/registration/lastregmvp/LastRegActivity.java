@@ -24,5 +24,17 @@ public class LastRegActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("");
         mButton = findViewById(R.id.skip_to_dashboard);
+        skipToDashboard();
+
+    }
+
+    void skipToDashboard() {
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LastRegActivity.this,DashboardActivity.class));
+            }
+        });
+
     }
 }

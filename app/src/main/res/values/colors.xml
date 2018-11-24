@@ -16,6 +16,10 @@
     <color name="default_text_color">#3E3221</color>
     <color name="default_bottom_text">#6E6446</color>
 
+    <color name="green_500">#4CAF50</color>
+    <color name = "green_600">#43A047</color>
+    <color name = "green_700">#388E3C</color>
+
     <drawable name="red_color">#FB1949</drawable>
     <drawable name="blue_color">#1703f4</drawable>
 

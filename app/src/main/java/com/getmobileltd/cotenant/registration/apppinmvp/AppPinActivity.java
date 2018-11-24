@@ -101,6 +101,7 @@ public class AppPinActivity extends AppCompatActivity implements AppPinContract.
                 if (response.body().getCode() == 409) {
 
                     Toast.makeText(AppPinActivity.this, "Email or Phone number exist", Toast.LENGTH_SHORT).show();
+                    mDilatingDotsProgressBar.hideNow();
 
                       }
 

@@ -49,7 +49,7 @@ public class AvailableSpaceAdapter extends RecyclerView.Adapter<AvailableSpaceAd
 
     @Override
     public int getItemCount() {
-        return spaceList.size();
+        return null != spaceList ? spaceList.size() : 0;
     }
 
     public static class MyViewModel extends RecyclerView.ViewHolder {

@@ -7,145 +7,171 @@
     android:orientation="vertical">
 
 
-    <include
-        layout="@layout/toolbar"
-         />
-
-    <LinearLayout
-        android:id="@+id/linearLayout6"
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        style="@style/Headerbar"
+        app:theme="@style/AppTheme.ToolbarStyle"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:background="@color/grey">
 
-        android:layout_marginRight="16dp"
-        android:orientation="horizontal">
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation= "vertical"
+            >
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
 
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:textColor="@android:color/black"
-            android:textSize="24sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
 
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="16dp"
-        android:text="Disability Preference"
-        android:textColor="@color/black_shade"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="11"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="14dp"
-        android:text="Are you a disabled person?"
-        android:textColor="@color/black_shade"
-        android:textSize="18sp" />
+            </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/yourdisability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="16dp"
+                android:text="Disability Preference"
+                android:textColor="@color/black_shade"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/disabledyes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/yes"
-            android:textColor="@color/black_shade"
-            android:textSize="16sp" />
 
-        <RadioButton
-            android:textColor="@color/black_shade"
-            android:id="@+id/nodisabled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no"
-            android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="14dp"
+                android:text="Are you a disabled person?"
+                android:textColor="@color/black_shade"
+                android:textSize="18sp" />
 
-    </RadioGroup>
+            <RadioGroup
+                android:id="@+id/yourdisability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
 
-    <TextView
+                <RadioButton
+                    android:id="@+id/disabledyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/yes"
+                    android:textColor="@color/black_shade"
+                    android:textSize="16sp" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="14dp"
-        android:text="Can you stay with a disabled person? "
-        android:textColor="@color/black_shade"
-        android:textSize="18sp" />
+                <RadioButton
+                    android:textColor="@color/black_shade"
+                    android:id="@+id/nodisabled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no"
+                    android:textSize="16sp" />
 
-    <RadioGroup
-        android:id="@+id/roomatedisability"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+            </RadioGroup>
 
-        android:layout_marginRight="16dp">
+            <TextView
 
-        <RadioButton
-            android:textColor="@color/black_shade"
-            android:id="@+id/staydisabledyes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/yes"
-            android:textSize="16sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="14dp"
+                android:text="Can you stay with a disabled person? "
+                android:textColor="@color/black_shade"
+                android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/staydisabledno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No"
-            android:textColor="@color/black_shade"
-            android:textSize="16sp" />
+            <RadioGroup
+                android:id="@+id/roomatedisability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
 
-    </RadioGroup>
+                android:layout_marginRight="16dp">
 
-    <Button
-        android:id="@+id/btn_choose_disabliity"
-        android:layout_width="match_parent"
+                <RadioButton
+                    android:textColor="@color/black_shade"
+                    android:id="@+id/staydisabledyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/yes"
+                    android:textSize="16sp" />
 
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/btn_red"
-        android:onClick="nextScreen"
-        android:text="@string/next"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
+                <RadioButton
+                    android:id="@+id/staydisabledno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="@color/black_shade"
+                    android:textSize="16sp" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_choose_disabliity"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/btn_red"
+                android:onClick="nextScreen"
+                android:text="@string/next"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </LinearLayout>
