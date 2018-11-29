@@ -57,7 +57,7 @@ public class HousesAdapter extends RecyclerView.Adapter<HousesAdapter.MyViewHold
                 .into(holder.image);*/
         Glide.with(context)
                 .load("http://azaliaevents.com.ng/wp-content/uploads/2018/05/IMG-20180515-WA0037.jpg")
-                .apply(new RequestOptions().override(600,200).fitCenter().placeholder(new ColorDrawable(Color.GREEN)).error(R.drawable.ic_warning).centerCrop())
+                .apply(new RequestOptions().placeholder(new ColorDrawable(Color.GREEN)).error(R.drawable.ic_warning).centerCrop())
                 .into(holder.image);
         holder.btn_details.setOnClickListener(new View.OnClickListener() {
             @Override

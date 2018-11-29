@@ -13,6 +13,7 @@ import com.getmobileltd.cotenant.database.table.Favorites_Table;
 import com.getmobileltd.cotenant.registration.apppinmvp.Client;
 import com.getmobileltd.cotenant.update_available_space_details.api.ApiService;
 import com.getmobileltd.cotenant.update_available_space_details.api.CreateInterestResponse;
+import com.getmobileltd.cotenant.update_available_space_details.api.DeleteInterestResponse;
 import com.getmobileltd.cotenant.update_dashboard.models.HousesModel;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -101,6 +102,8 @@ public class AvailableSpaceDetails extends AppCompatActivity {
                 favorites.setLike(false);
                 favorites.save();
 
+            deleteInterest(api_key, 35,housesModel.getId());
+
 
             }
         });
@@ -113,6 +116,8 @@ public class AvailableSpaceDetails extends AppCompatActivity {
             populateViews();
         }
     }
+
+
 
     private void populateViews() {
         mBedroom.setText(housesModel.getBedroom());
@@ -153,12 +158,32 @@ public class AvailableSpaceDetails extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<CreateInterestResponse> call, Throwable t) {
+                Toast.makeText(AvailableSpaceDetails.this, "Unable to create interest: Check your network connection", Toast.LENGTH_SHORT).show();
 
             }
         });
 
 
     }
+    private void deleteInterest(String api_key, int cotenant_id, int property_id) {
+        mApiService = Client.getClient().create(ApiService.class);
+        Call<DeleteInterestResponse> call = mApiService.deleteInterest(api_key, cotenant_id, property_id );
+        call.enqueue(new Callback<DeleteInterestResponse>() {
+            @Override
+            public void onResponse(Call<DeleteInterestResponse> call, Response<DeleteInterestResponse> response) {
+                if (response.body().getStatus().equals("success")) {
+                    Toast.makeText(AvailableSpaceDetails.this, "Removed from Interest", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(AvailableSpaceDetails.this, "Error processing request", Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<DeleteInterestResponse> call, Throwable t) {
+                Toast.makeText(AvailableSpaceDetails.this, "Network error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 }

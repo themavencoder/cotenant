@@ -75,7 +75,7 @@
                     android:paddingRight="8dp"
                     android:paddingBottom="20dp"
                     android:maxLength="20"
-                    android:inputType="number"
+                    android:inputType="phone"
 
                     android:hint="Card number" />
 

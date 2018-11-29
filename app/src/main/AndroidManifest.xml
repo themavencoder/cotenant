@@ -61,6 +61,7 @@
 
 
 
+
         </activity>
         <activity
             android:name=".registration.apppinmvp.AppPinActivity"
@@ -70,7 +71,10 @@
             android:label="Dashboard"></activity>
         <activity
             android:name=".interest.InterestActivity"
-            android:label="Interest" />
+            android:label="Interest" >
+
+
+        </activity>
         <activity android:name=".history.HistoryActivity" />
         <activity android:name=".payment.CardDetailsActivity" />
         <activity android:name=".navdrawer.NavigationActivity"></activity>
@@ -104,6 +108,7 @@
         <activity android:name=".availablespacechecked.AvailableSpaceChecked" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".update_dashboard.DashboardActivity">
+
 
 
         </activity>

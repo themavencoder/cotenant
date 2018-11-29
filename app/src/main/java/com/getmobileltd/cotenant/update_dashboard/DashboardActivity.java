@@ -27,6 +27,10 @@ import com.getmobileltd.cotenant.database.table.UserModel;
 import com.getmobileltd.cotenant.database.table.UserModel_Table;
 import com.getmobileltd.cotenant.history.HistoryActivity;
 import com.getmobileltd.cotenant.interest.InterestActivity;
+import com.getmobileltd.cotenant.interest.adapter.InterestAdapter;
+import com.getmobileltd.cotenant.interest.api.InterestData;
+import com.getmobileltd.cotenant.interest.api.InterestResponse;
+import com.getmobileltd.cotenant.interest.model.InterestModel;
 import com.getmobileltd.cotenant.payment.EmptyPayment;
 
 import com.getmobileltd.cotenant.registration.apppinmvp.Client;
@@ -60,8 +64,8 @@ public class DashboardActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewInterest;
     private LocationAdapter locationAdapter;
-    private DashboardInterestAdapter interestAdapter;
-    private List<DashboardInterestModel> interestModelList = new ArrayList<>();
+    private InterestAdapter interestAdapter;
+    private List<InterestModel> modelList = new ArrayList<>();
     private List<LocationModel> locationModelList = new ArrayList<>();
     private DrawerLayout d;
     private ActionBarDrawerToggle t;
@@ -70,10 +74,11 @@ public class DashboardActivity extends AppCompatActivity {
     private NavigationView nv;
     private TextView mFullName, mWorkPlace;
     private ApiService mApiService;
-    public static String api_key = "qpy4HYo3ct5iIO6oDEBdUNgGd8Kkb2mnU0hM4hiyMDU9zRSMUP$2y$10$XaeWYtEQBOyyeHINATHx/eemd.bJPmHa/U1TZ4Xwty8AfFr0FTxMi7iGYyK19Ll1kZTKpWi4W4crDFZMav3KQWj6yl22yDJOyTuFBWwPsfKzw2VA4uQEdVj4vH8lI0ZNNpigNs1xcvYaOsxc2et2gJdxTvNXmFVA1K9uiXw9vNuwqOy34VYZPtbBRINT8wzVdVLHGt";
+    public static String api_key = "YxOhbH00LdvzLFlY3rFXWC15bPRJWp7nEonxqR2LAE3RjTCNXp$2y$10$9Wn.dPfS9DzdHnd.pHjtzupKE8azq1eTXGQzQPSQHTL.JC1ZwGOH2vDTFa2vpGizwyBvFLxexqGXiL0h1ZQvu6n08TYzwsiTjdwD746QcYD3OJQi4wI75XgQDhLo7ktZYrRUi2KJ4MXsE3h8SnFXwqdQ4fAecrVpbTvRM3PACiiAHZoiAr5UtOF9OeRKkJ4px2JSyk";
     private TwoLocations twoLocations;
     private String a = "Yaba";
     private String b = "Surulere";
+    private com.getmobileltd.cotenant.interest.api.ApiService interestApi;
     private List<LocationModel> emptyList = new ArrayList<>();
    UserModel userModel;
     public static final String HOUSEMODEL = "house_model";
@@ -117,11 +122,12 @@ public class DashboardActivity extends AppCompatActivity {
         navMenuView.isSelected();
         //  dummyInterest();
         //   dummyData();
-        if (interestModelList.isEmpty()) {
-            findViewById(R.id.empty_interest).setVisibility(View.VISIBLE);
-        }
+        getAllInterest();
+        getLocation();
+
+
         locationAdapter = new LocationAdapter(this, locationModelList);
-        interestAdapter = new DashboardInterestAdapter(this, interestModelList);
+        interestAdapter = new InterestAdapter(this, modelList);
         recyclerViewInterest.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerViewInterest.setAdapter(interestAdapter);
@@ -184,10 +190,12 @@ public class DashboardActivity extends AppCompatActivity {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-              recyclerView.setAdapter(null);
-              recyclerViewInterest.setAdapter(null);
+             // recyclerView.setAdapter(null);
+           //recyclerViewInterest.setAdapter(null);
                locationModelList.clear();
+              modelList.clear();
                 getLocation();
+                getAllInterest();
 
             }
         });
@@ -210,16 +218,18 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        refresh();
+       // refresh();
 
     }
 
     private void dummyInterest() {
-        interestModelList.add(new DashboardInterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "NGN 50 000", R.drawable.defaultimage));
-        interestModelList.add(new DashboardInterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "NGN 50 000", R.drawable.defaultimage));
-        interestModelList.add(new DashboardInterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "NGN 50 000", R.drawable.defaultimage));
-        interestModelList.add(new DashboardInterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "NGN 50 000", R.drawable.defaultimage));
-        interestModelList.add(new DashboardInterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "NGN 50 000", R.drawable.defaultimage));
+        modelList.add(new InterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba","This is an example of an addtional detail", "NGN 50 000"));
+        modelList.add(new InterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "vvffv","NGN 50 000"));
+        modelList.add(new InterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "ddvdvdv", "NGN 50 000"));
+        modelList.add(new InterestModel("2 BEDROOM", "Yaba", "42,Montgomerry road, Yaba", "dddd", "NGN 50 000"));
+        if (modelList.isEmpty()) {
+            findViewById(R.id.empty_interest).setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -359,5 +369,62 @@ public class DashboardActivity extends AppCompatActivity {
             }
 
         }
+    }
+    private void getAllInterest() {
+        interestApi = Client.getClient().create(com.getmobileltd.cotenant.interest.api.ApiService.class);
+        Call<InterestResponse> call = interestApi.getLocation(api_key, 35);
+
+        call.enqueue(new Callback<InterestResponse>() {
+            @Override
+            public void onResponse(Call<InterestResponse> call, Response<InterestResponse> response) {
+                if (response.body().getStatus().equals("success")) {
+                    findViewById(R.id.empty_interest).setVisibility(View.GONE);
+                    recyclerViewInterest.setVisibility(View.VISIBLE);
+                    //  mSwipeRefreshLayout.setRefreshing(false);
+                    Toast.makeText(DashboardActivity.this, "Refreshed", Toast.LENGTH_SHORT).show();
+                    List<InterestData> results = new ArrayList<>();
+                    results =  response.body().getData();
+
+                    for (InterestData m : results ) {
+                        String bathroom = m.getBathroom();
+                        String location = m.getLocation();
+                        String address = m.getAddress();
+                        String amount = m.getAmount();
+                        String additional_details = m.getDescription();
+                        modelList.add(new InterestModel(bathroom,location,address,additional_details,amount));
+
+
+                    }
+                    interestAdapter = new InterestAdapter(getApplicationContext(),modelList);
+                    recyclerViewInterest.setLayoutManager(new LinearLayoutManager(DashboardActivity.this,LinearLayoutManager.HORIZONTAL,false));
+                    recyclerViewInterest.setAdapter(interestAdapter);
+
+                    mSwipeRefreshLayout.setRefreshing(false);
+
+
+
+
+                }
+                else {
+                    if (response.body().getCode() == 404)
+                        findViewById(R.id.empty_interest).setVisibility(View.VISIBLE);
+                        recyclerViewInterest.setVisibility(View.GONE);
+                    Toast.makeText(DashboardActivity.this, "No saved interest", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InterestResponse> call, Throwable t) {
+                Toast.makeText(DashboardActivity.this, "No connection made to host", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        modelList.clear();
     }
 }

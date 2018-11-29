@@ -11,4 +11,8 @@ public interface ApiService {
     @POST("interests/create")
     Call<CreateInterestResponse> getInterest(@Header("Authorization") String value, @Query("cotenant_id") int cotenant_id,
                                              @Query("property_id") int property_id);
+
+    @POST("interests/delete")
+    Call<DeleteInterestResponse> deleteInterest(@Header("Authorization") String value, @Query("cotenant_id") int id, @Query("property_id") int property_id);
+
 }

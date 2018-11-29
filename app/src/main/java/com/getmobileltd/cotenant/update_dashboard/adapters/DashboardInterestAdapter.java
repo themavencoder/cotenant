@@ -2,6 +2,8 @@ package com.getmobileltd.cotenant.update_dashboard.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.getmobileltd.cotenant.R;
+import com.getmobileltd.cotenant.interest.model.InterestModel;
 import com.getmobileltd.cotenant.update_available_space_details.AvailableSpaceDetails;
 import com.getmobileltd.cotenant.update_dashboard.models.DashboardInterestModel;
 import com.getmobileltd.cotenant.update_dashboard.models.HousesModel;
@@ -20,8 +25,8 @@ import java.util.List;
 
 public class DashboardInterestAdapter extends RecyclerView.Adapter<DashboardInterestAdapter.MyViewHolder> {
     private Context context;
-    private List<DashboardInterestModel> interestList;
-    public DashboardInterestAdapter(Context context, List<DashboardInterestModel> interestList) {
+    private List<InterestModel> interestList;
+    public DashboardInterestAdapter(Context context, List<InterestModel> interestList) {
         this.context = context;
         this.interestList = interestList;
     }
@@ -31,7 +36,7 @@ public class DashboardInterestAdapter extends RecyclerView.Adapter<DashboardInte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dashboard_interest_main,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interest,parent,false);
 
         return new DashboardInterestAdapter.MyViewHolder(v);
     }
@@ -42,7 +47,10 @@ public class DashboardInterestAdapter extends RecyclerView.Adapter<DashboardInte
         holder.addressLOcation.setText(interestList.get(position).getAddressLocation());
         holder.bedroom.setText(interestList.get(position).getBedroom());
         holder.rent.setText(interestList.get(position).getRent());
-        holder.image.setImageResource(interestList.get(position).getImageOfLocation());
+        Glide.with(context)
+                .load("http://azaliaevents.com.ng/wp-content/uploads/2018/05/IMG-20180515-WA0037.jpg")
+                .apply(new RequestOptions().placeholder(new ColorDrawable(Color.GREEN)).error(R.drawable.ic_warning).centerInside())
+                .into(holder.image);
 
     }
 

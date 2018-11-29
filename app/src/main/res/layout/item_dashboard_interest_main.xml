@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_marginBottom="8dp"
+    android:layout_marginLeft = "56dp"
     android:layout_height="wrap_content"
     android:layout_marginRight="16dp"
     >
@@ -107,7 +108,8 @@
         android:text="Details"
         android:paddingRight="28dp"
         android:paddingLeft="24dp"
-        android:layout_marginBottom="8dp"
+
+        android:layout_marginBottom="24dp"
         android:drawableRight="@drawable/front_arrow"
         android:textAllCaps="false"
         />
